@@ -1,0 +1,16 @@
+-- @path small=/SmallUML/model/smalluml.ecore
+-- @path uml=/UML/model/uml.ecore
+
+module Small2UML;
+create OUT : uml from IN : small;
+
+rule package {
+	from
+		small:small!Class
+	to 
+		uml:uml!Class (
+			
+		)
+}
+	
+
