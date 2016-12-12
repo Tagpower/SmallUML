@@ -15,6 +15,12 @@ import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
 import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 import org.smalluml.services.SmallUMLGrammarAccess;
+import org.smalluml.smalluml.Association;
+import org.smalluml.smalluml.Attribute;
+import org.smalluml.smalluml.Date;
+import org.smalluml.smalluml.Inheritance;
+import org.smalluml.smalluml.Operation;
+import org.smalluml.smalluml.Role;
 import org.smalluml.smalluml.SmallumlPackage;
 
 @SuppressWarnings("all")
@@ -31,8 +37,35 @@ public class SmallUMLSemanticSequencer extends AbstractDelegatingSemanticSequenc
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == SmallumlPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
+			case SmallumlPackage.ASSOCIATION:
+				sequence_Association(context, (Association) semanticObject); 
+				return; 
+			case SmallumlPackage.ATTRIBUTE:
+				sequence_Attribute(context, (Attribute) semanticObject); 
+				return; 
 			case SmallumlPackage.CLASS:
 				sequence_Class(context, (org.smalluml.smalluml.Class) semanticObject); 
+				return; 
+			case SmallumlPackage.DATE:
+				sequence_Date(context, (Date) semanticObject); 
+				return; 
+			case SmallumlPackage.INHERITANCE:
+				sequence_Inheritance(context, (Inheritance) semanticObject); 
+				return; 
+			case SmallumlPackage.INTEGER:
+				sequence_Integer(context, (org.smalluml.smalluml.Integer) semanticObject); 
+				return; 
+			case SmallumlPackage.OPERATION:
+				sequence_Operation(context, (Operation) semanticObject); 
+				return; 
+			case SmallumlPackage.PARAMETER:
+				sequence_Parameter(context, (org.smalluml.smalluml.Parameter) semanticObject); 
+				return; 
+			case SmallumlPackage.ROLE:
+				sequence_Role(context, (Role) semanticObject); 
+				return; 
+			case SmallumlPackage.STRING:
+				sequence_String0(context, (org.smalluml.smalluml.String) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
@@ -41,18 +74,178 @@ public class SmallUMLSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	
 	/**
 	 * Contexts:
+	 *     Association returns Association
+	 *
+	 * Constraint:
+	 *     (name=EString role+=Role role+=Role*)
+	 */
+	protected void sequence_Association(ISerializationContext context, Association semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Attribute returns Attribute
+	 *
+	 * Constraint:
+	 *     (name=EString type=[SuperType|EString])
+	 */
+	protected void sequence_Attribute(ISerializationContext context, Attribute semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, SmallumlPackage.Literals.ATTRIBUTE__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmallumlPackage.Literals.ATTRIBUTE__NAME));
+			if (transientValues.isValueTransient(semanticObject, SmallumlPackage.Literals.ATTRIBUTE__TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmallumlPackage.Literals.ATTRIBUTE__TYPE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getAttributeAccess().getNameEStringParserRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getAttributeAccess().getTypeSuperTypeEStringParserRuleCall_4_0_1(), semanticObject.getType());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     SuperType returns Class
 	 *     Class returns Class
+	 *
+	 * Constraint:
+	 *     (
+	 *         isAbstract?='isAbstract' 
+	 *         name=EString 
+	 *         super=[Inheritance|EString]? 
+	 *         (attribute+=Attribute attribute+=Attribute*)? 
+	 *         (operation+=Operation operation+=Operation*)?
+	 *     )
+	 */
+	protected void sequence_Class(ISerializationContext context, org.smalluml.smalluml.Class semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     SuperType returns Date
+	 *     Date returns Date
 	 *
 	 * Constraint:
 	 *     name=EString
 	 */
-	protected void sequence_Class(ISerializationContext context, org.smalluml.smalluml.Class semanticObject) {
+	protected void sequence_Date(ISerializationContext context, Date semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, SmallumlPackage.Literals.CLASS__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmallumlPackage.Literals.CLASS__NAME));
+			if (transientValues.isValueTransient(semanticObject, SmallumlPackage.Literals.SUPER_TYPE__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmallumlPackage.Literals.SUPER_TYPE__NAME));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getClassAccess().getNameEStringParserRuleCall_2_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getDateAccess().getNameEStringParserRuleCall_2_0(), semanticObject.getName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Inheritance returns Inheritance
+	 *
+	 * Constraint:
+	 *     (children+=Class children+=Class*)?
+	 */
+	protected void sequence_Inheritance(ISerializationContext context, Inheritance semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     SuperType returns Integer
+	 *     Integer returns Integer
+	 *
+	 * Constraint:
+	 *     name=EString
+	 */
+	protected void sequence_Integer(ISerializationContext context, org.smalluml.smalluml.Integer semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, SmallumlPackage.Literals.SUPER_TYPE__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmallumlPackage.Literals.SUPER_TYPE__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getIntegerAccess().getNameEStringParserRuleCall_2_0(), semanticObject.getName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Operation returns Operation
+	 *
+	 * Constraint:
+	 *     (isAbstract?='isAbstract' name=EString returnType=[SuperType|EString]? (parameters+=Parameter parameters+=Parameter*)?)
+	 */
+	protected void sequence_Operation(ISerializationContext context, Operation semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Parameter returns Parameter
+	 *
+	 * Constraint:
+	 *     (name=EString type=[SuperType|EString])
+	 */
+	protected void sequence_Parameter(ISerializationContext context, org.smalluml.smalluml.Parameter semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, SmallumlPackage.Literals.PARAMETER__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmallumlPackage.Literals.PARAMETER__NAME));
+			if (transientValues.isValueTransient(semanticObject, SmallumlPackage.Literals.PARAMETER__TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmallumlPackage.Literals.PARAMETER__TYPE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getParameterAccess().getNameEStringParserRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getParameterAccess().getTypeSuperTypeEStringParserRuleCall_4_0_1(), semanticObject.getType());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Role returns Role
+	 *
+	 * Constraint:
+	 *     (name=EString lowerBound=EInt upperBound=EInt)
+	 */
+	protected void sequence_Role(ISerializationContext context, Role semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, SmallumlPackage.Literals.ROLE__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmallumlPackage.Literals.ROLE__NAME));
+			if (transientValues.isValueTransient(semanticObject, SmallumlPackage.Literals.ROLE__LOWER_BOUND) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmallumlPackage.Literals.ROLE__LOWER_BOUND));
+			if (transientValues.isValueTransient(semanticObject, SmallumlPackage.Literals.ROLE__UPPER_BOUND) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmallumlPackage.Literals.ROLE__UPPER_BOUND));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getRoleAccess().getNameEStringParserRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getRoleAccess().getLowerBoundEIntParserRuleCall_4_0(), semanticObject.getLowerBound());
+		feeder.accept(grammarAccess.getRoleAccess().getUpperBoundEIntParserRuleCall_6_0(), semanticObject.getUpperBound());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     SuperType returns String
+	 *     String0 returns String
+	 *
+	 * Constraint:
+	 *     name=EString
+	 */
+	protected void sequence_String0(ISerializationContext context, org.smalluml.smalluml.String semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, SmallumlPackage.Literals.SUPER_TYPE__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmallumlPackage.Literals.SUPER_TYPE__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getString0Access().getNameEStringParserRuleCall_2_0(), semanticObject.getName());
 		feeder.finish();
 	}
 	

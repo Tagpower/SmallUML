@@ -30,7 +30,7 @@ Workflow {
 		}
 		language = StandardLanguage {
 			name = "org.smalluml.SmallUML"
-			fileExtensions = "suml"
+			fileExtensions = "smalluml"
 			referencedResource = "platform:/resource/SmallUML/model/smalluml.genmodel"
 			
 			fragment = ecore2xtext.Ecore2XtextValueConverterServiceFragment2 auto-inject {}

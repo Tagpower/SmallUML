@@ -10,7 +10,15 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 
 import org.eclipse.emf.ecore.EObject;
 
+import org.smalluml.smalluml.Association;
+import org.smalluml.smalluml.Attribute;
+import org.smalluml.smalluml.Date;
+import org.smalluml.smalluml.Inheritance;
+import org.smalluml.smalluml.Operation;
+import org.smalluml.smalluml.Parameter;
+import org.smalluml.smalluml.Role;
 import org.smalluml.smalluml.SmallumlPackage;
+import org.smalluml.smalluml.SuperType;
 
 /**
  * <!-- begin-user-doc -->
@@ -76,9 +84,59 @@ public class SmallumlAdapterFactory extends AdapterFactoryImpl
     new SmallumlSwitch<Adapter>()
     {
       @Override
+      public Adapter caseSuperType(SuperType object)
+      {
+        return createSuperTypeAdapter();
+      }
+      @Override
+      public Adapter caseAttribute(Attribute object)
+      {
+        return createAttributeAdapter();
+      }
+      @Override
+      public Adapter caseRole(Role object)
+      {
+        return createRoleAdapter();
+      }
+      @Override
+      public Adapter caseAssociation(Association object)
+      {
+        return createAssociationAdapter();
+      }
+      @Override
+      public Adapter caseOperation(Operation object)
+      {
+        return createOperationAdapter();
+      }
+      @Override
+      public Adapter caseParameter(Parameter object)
+      {
+        return createParameterAdapter();
+      }
+      @Override
       public Adapter caseClass(org.smalluml.smalluml.Class object)
       {
         return createClassAdapter();
+      }
+      @Override
+      public Adapter caseInteger(org.smalluml.smalluml.Integer object)
+      {
+        return createIntegerAdapter();
+      }
+      @Override
+      public Adapter caseString(org.smalluml.smalluml.String object)
+      {
+        return createStringAdapter();
+      }
+      @Override
+      public Adapter caseDate(Date object)
+      {
+        return createDateAdapter();
+      }
+      @Override
+      public Adapter caseInheritance(Inheritance object)
+      {
+        return createInheritanceAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -103,6 +161,96 @@ public class SmallumlAdapterFactory extends AdapterFactoryImpl
 
 
   /**
+   * Creates a new adapter for an object of class '{@link org.smalluml.smalluml.SuperType <em>Super Type</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.smalluml.smalluml.SuperType
+   * @generated
+   */
+  public Adapter createSuperTypeAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.smalluml.smalluml.Attribute <em>Attribute</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.smalluml.smalluml.Attribute
+   * @generated
+   */
+  public Adapter createAttributeAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.smalluml.smalluml.Role <em>Role</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.smalluml.smalluml.Role
+   * @generated
+   */
+  public Adapter createRoleAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.smalluml.smalluml.Association <em>Association</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.smalluml.smalluml.Association
+   * @generated
+   */
+  public Adapter createAssociationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.smalluml.smalluml.Operation <em>Operation</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.smalluml.smalluml.Operation
+   * @generated
+   */
+  public Adapter createOperationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.smalluml.smalluml.Parameter <em>Parameter</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.smalluml.smalluml.Parameter
+   * @generated
+   */
+  public Adapter createParameterAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link org.smalluml.smalluml.Class <em>Class</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -113,6 +261,66 @@ public class SmallumlAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createClassAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.smalluml.smalluml.Integer <em>Integer</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.smalluml.smalluml.Integer
+   * @generated
+   */
+  public Adapter createIntegerAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.smalluml.smalluml.String <em>String</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.smalluml.smalluml.String
+   * @generated
+   */
+  public Adapter createStringAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.smalluml.smalluml.Date <em>Date</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.smalluml.smalluml.Date
+   * @generated
+   */
+  public Adapter createDateAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.smalluml.smalluml.Inheritance <em>Inheritance</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.smalluml.smalluml.Inheritance
+   * @generated
+   */
+  public Adapter createInheritanceAdapter()
   {
     return null;
   }

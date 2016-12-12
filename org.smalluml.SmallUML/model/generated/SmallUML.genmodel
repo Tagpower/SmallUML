@@ -5,9 +5,44 @@
     updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     complianceLevel="6.0" copyrightFields="false" runtimeVersion="2.12">
   <genPackages prefix="Smalluml" basePackage="org.smalluml" disposableProviderFactory="true"
-      fileExtensions="suml" ecorePackage="SmallUML.ecore#/">
+      fileExtensions="smalluml" ecorePackage="SmallUML.ecore#/">
+    <genClasses ecoreClass="SmallUML.ecore#//SuperType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SmallUML.ecore#//SuperType/name"/>
+    </genClasses>
+    <genClasses ecoreClass="SmallUML.ecore#//Attribute">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SmallUML.ecore#//Attribute/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SmallUML.ecore#//Attribute/type"/>
+    </genClasses>
+    <genClasses ecoreClass="SmallUML.ecore#//Role">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SmallUML.ecore#//Role/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SmallUML.ecore#//Role/lowerBound"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SmallUML.ecore#//Role/upperBound"/>
+    </genClasses>
+    <genClasses ecoreClass="SmallUML.ecore#//Association">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SmallUML.ecore#//Association/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SmallUML.ecore#//Association/role"/>
+    </genClasses>
+    <genClasses ecoreClass="SmallUML.ecore#//Operation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SmallUML.ecore#//Operation/isAbstract"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SmallUML.ecore#//Operation/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SmallUML.ecore#//Operation/returnType"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SmallUML.ecore#//Operation/parameters"/>
+    </genClasses>
+    <genClasses ecoreClass="SmallUML.ecore#//Parameter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SmallUML.ecore#//Parameter/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SmallUML.ecore#//Parameter/type"/>
+    </genClasses>
     <genClasses ecoreClass="SmallUML.ecore#//Class">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SmallUML.ecore#//Class/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SmallUML.ecore#//Class/isAbstract"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SmallUML.ecore#//Class/super"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SmallUML.ecore#//Class/attribute"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SmallUML.ecore#//Class/operation"/>
+    </genClasses>
+    <genClasses ecoreClass="SmallUML.ecore#//Integer"/>
+    <genClasses ecoreClass="SmallUML.ecore#//String"/>
+    <genClasses ecoreClass="SmallUML.ecore#//Date"/>
+    <genClasses ecoreClass="SmallUML.ecore#//Inheritance">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SmallUML.ecore#//Inheritance/children"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

@@ -3,9 +3,12 @@
  */
 package org.smalluml.smalluml;
 
+import java.lang.String;
+
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
 
 /**
  * <!-- begin-user-doc -->
@@ -57,14 +60,14 @@ public interface SmallumlPackage extends EPackage
   SmallumlPackage eINSTANCE = org.smalluml.smalluml.impl.SmallumlPackageImpl.init();
 
   /**
-   * The meta object id for the '{@link org.smalluml.smalluml.impl.ClassImpl <em>Class</em>}' class.
+   * The meta object id for the '{@link org.smalluml.smalluml.impl.SuperTypeImpl <em>Super Type</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.smalluml.smalluml.impl.ClassImpl
-   * @see org.smalluml.smalluml.impl.SmallumlPackageImpl#getClass_()
+   * @see org.smalluml.smalluml.impl.SuperTypeImpl
+   * @see org.smalluml.smalluml.impl.SmallumlPackageImpl#getSuperType()
    * @generated
    */
-  int CLASS = 0;
+  int SUPER_TYPE = 0;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -73,7 +76,283 @@ public interface SmallumlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CLASS__NAME = 0;
+  int SUPER_TYPE__NAME = 0;
+
+  /**
+   * The number of structural features of the '<em>Super Type</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SUPER_TYPE_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link org.smalluml.smalluml.impl.AttributeImpl <em>Attribute</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.smalluml.smalluml.impl.AttributeImpl
+   * @see org.smalluml.smalluml.impl.SmallumlPackageImpl#getAttribute()
+   * @generated
+   */
+  int ATTRIBUTE = 1;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ATTRIBUTE__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ATTRIBUTE__TYPE = 1;
+
+  /**
+   * The number of structural features of the '<em>Attribute</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ATTRIBUTE_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link org.smalluml.smalluml.impl.RoleImpl <em>Role</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.smalluml.smalluml.impl.RoleImpl
+   * @see org.smalluml.smalluml.impl.SmallumlPackageImpl#getRole()
+   * @generated
+   */
+  int ROLE = 2;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ROLE__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Lower Bound</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ROLE__LOWER_BOUND = 1;
+
+  /**
+   * The feature id for the '<em><b>Upper Bound</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ROLE__UPPER_BOUND = 2;
+
+  /**
+   * The number of structural features of the '<em>Role</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ROLE_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link org.smalluml.smalluml.impl.AssociationImpl <em>Association</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.smalluml.smalluml.impl.AssociationImpl
+   * @see org.smalluml.smalluml.impl.SmallumlPackageImpl#getAssociation()
+   * @generated
+   */
+  int ASSOCIATION = 3;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ASSOCIATION__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Role</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ASSOCIATION__ROLE = 1;
+
+  /**
+   * The number of structural features of the '<em>Association</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ASSOCIATION_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link org.smalluml.smalluml.impl.OperationImpl <em>Operation</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.smalluml.smalluml.impl.OperationImpl
+   * @see org.smalluml.smalluml.impl.SmallumlPackageImpl#getOperation()
+   * @generated
+   */
+  int OPERATION = 4;
+
+  /**
+   * The feature id for the '<em><b>Is Abstract</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPERATION__IS_ABSTRACT = 0;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPERATION__NAME = 1;
+
+  /**
+   * The feature id for the '<em><b>Return Type</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPERATION__RETURN_TYPE = 2;
+
+  /**
+   * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPERATION__PARAMETERS = 3;
+
+  /**
+   * The number of structural features of the '<em>Operation</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPERATION_FEATURE_COUNT = 4;
+
+  /**
+   * The meta object id for the '{@link org.smalluml.smalluml.impl.ParameterImpl <em>Parameter</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.smalluml.smalluml.impl.ParameterImpl
+   * @see org.smalluml.smalluml.impl.SmallumlPackageImpl#getParameter()
+   * @generated
+   */
+  int PARAMETER = 5;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PARAMETER__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PARAMETER__TYPE = 1;
+
+  /**
+   * The number of structural features of the '<em>Parameter</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PARAMETER_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link org.smalluml.smalluml.impl.ClassImpl <em>Class</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.smalluml.smalluml.impl.ClassImpl
+   * @see org.smalluml.smalluml.impl.SmallumlPackageImpl#getClass_()
+   * @generated
+   */
+  int CLASS = 6;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CLASS__NAME = SUPER_TYPE__NAME;
+
+  /**
+   * The feature id for the '<em><b>Is Abstract</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CLASS__IS_ABSTRACT = SUPER_TYPE_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Super</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CLASS__SUPER = SUPER_TYPE_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Attribute</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CLASS__ATTRIBUTE = SUPER_TYPE_FEATURE_COUNT + 2;
+
+  /**
+   * The feature id for the '<em><b>Operation</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CLASS__OPERATION = SUPER_TYPE_FEATURE_COUNT + 3;
 
   /**
    * The number of structural features of the '<em>Class</em>' class.
@@ -82,8 +361,334 @@ public interface SmallumlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CLASS_FEATURE_COUNT = 1;
+  int CLASS_FEATURE_COUNT = SUPER_TYPE_FEATURE_COUNT + 4;
 
+  /**
+   * The meta object id for the '{@link org.smalluml.smalluml.impl.IntegerImpl <em>Integer</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.smalluml.smalluml.impl.IntegerImpl
+   * @see org.smalluml.smalluml.impl.SmallumlPackageImpl#getInteger()
+   * @generated
+   */
+  int INTEGER = 7;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INTEGER__NAME = SUPER_TYPE__NAME;
+
+  /**
+   * The number of structural features of the '<em>Integer</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INTEGER_FEATURE_COUNT = SUPER_TYPE_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link org.smalluml.smalluml.impl.StringImpl <em>String</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.smalluml.smalluml.impl.StringImpl
+   * @see org.smalluml.smalluml.impl.SmallumlPackageImpl#getString()
+   * @generated
+   */
+  int STRING = 8;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STRING__NAME = SUPER_TYPE__NAME;
+
+  /**
+   * The number of structural features of the '<em>String</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STRING_FEATURE_COUNT = SUPER_TYPE_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link org.smalluml.smalluml.impl.DateImpl <em>Date</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.smalluml.smalluml.impl.DateImpl
+   * @see org.smalluml.smalluml.impl.SmallumlPackageImpl#getDate()
+   * @generated
+   */
+  int DATE = 9;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DATE__NAME = SUPER_TYPE__NAME;
+
+  /**
+   * The number of structural features of the '<em>Date</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DATE_FEATURE_COUNT = SUPER_TYPE_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link org.smalluml.smalluml.impl.InheritanceImpl <em>Inheritance</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.smalluml.smalluml.impl.InheritanceImpl
+   * @see org.smalluml.smalluml.impl.SmallumlPackageImpl#getInheritance()
+   * @generated
+   */
+  int INHERITANCE = 10;
+
+  /**
+   * The feature id for the '<em><b>Children</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INHERITANCE__CHILDREN = 0;
+
+  /**
+   * The number of structural features of the '<em>Inheritance</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INHERITANCE_FEATURE_COUNT = 1;
+
+
+  /**
+   * Returns the meta object for class '{@link org.smalluml.smalluml.SuperType <em>Super Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Super Type</em>'.
+   * @see org.smalluml.smalluml.SuperType
+   * @generated
+   */
+  EClass getSuperType();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.smalluml.smalluml.SuperType#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.smalluml.smalluml.SuperType#getName()
+   * @see #getSuperType()
+   * @generated
+   */
+  EAttribute getSuperType_Name();
+
+  /**
+   * Returns the meta object for class '{@link org.smalluml.smalluml.Attribute <em>Attribute</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Attribute</em>'.
+   * @see org.smalluml.smalluml.Attribute
+   * @generated
+   */
+  EClass getAttribute();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.smalluml.smalluml.Attribute#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.smalluml.smalluml.Attribute#getName()
+   * @see #getAttribute()
+   * @generated
+   */
+  EAttribute getAttribute_Name();
+
+  /**
+   * Returns the meta object for the reference '{@link org.smalluml.smalluml.Attribute#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Type</em>'.
+   * @see org.smalluml.smalluml.Attribute#getType()
+   * @see #getAttribute()
+   * @generated
+   */
+  EReference getAttribute_Type();
+
+  /**
+   * Returns the meta object for class '{@link org.smalluml.smalluml.Role <em>Role</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Role</em>'.
+   * @see org.smalluml.smalluml.Role
+   * @generated
+   */
+  EClass getRole();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.smalluml.smalluml.Role#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.smalluml.smalluml.Role#getName()
+   * @see #getRole()
+   * @generated
+   */
+  EAttribute getRole_Name();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.smalluml.smalluml.Role#getLowerBound <em>Lower Bound</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Lower Bound</em>'.
+   * @see org.smalluml.smalluml.Role#getLowerBound()
+   * @see #getRole()
+   * @generated
+   */
+  EAttribute getRole_LowerBound();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.smalluml.smalluml.Role#getUpperBound <em>Upper Bound</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Upper Bound</em>'.
+   * @see org.smalluml.smalluml.Role#getUpperBound()
+   * @see #getRole()
+   * @generated
+   */
+  EAttribute getRole_UpperBound();
+
+  /**
+   * Returns the meta object for class '{@link org.smalluml.smalluml.Association <em>Association</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Association</em>'.
+   * @see org.smalluml.smalluml.Association
+   * @generated
+   */
+  EClass getAssociation();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.smalluml.smalluml.Association#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.smalluml.smalluml.Association#getName()
+   * @see #getAssociation()
+   * @generated
+   */
+  EAttribute getAssociation_Name();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.smalluml.smalluml.Association#getRole <em>Role</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Role</em>'.
+   * @see org.smalluml.smalluml.Association#getRole()
+   * @see #getAssociation()
+   * @generated
+   */
+  EReference getAssociation_Role();
+
+  /**
+   * Returns the meta object for class '{@link org.smalluml.smalluml.Operation <em>Operation</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Operation</em>'.
+   * @see org.smalluml.smalluml.Operation
+   * @generated
+   */
+  EClass getOperation();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.smalluml.smalluml.Operation#isIsAbstract <em>Is Abstract</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Is Abstract</em>'.
+   * @see org.smalluml.smalluml.Operation#isIsAbstract()
+   * @see #getOperation()
+   * @generated
+   */
+  EAttribute getOperation_IsAbstract();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.smalluml.smalluml.Operation#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.smalluml.smalluml.Operation#getName()
+   * @see #getOperation()
+   * @generated
+   */
+  EAttribute getOperation_Name();
+
+  /**
+   * Returns the meta object for the reference '{@link org.smalluml.smalluml.Operation#getReturnType <em>Return Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Return Type</em>'.
+   * @see org.smalluml.smalluml.Operation#getReturnType()
+   * @see #getOperation()
+   * @generated
+   */
+  EReference getOperation_ReturnType();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.smalluml.smalluml.Operation#getParameters <em>Parameters</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Parameters</em>'.
+   * @see org.smalluml.smalluml.Operation#getParameters()
+   * @see #getOperation()
+   * @generated
+   */
+  EReference getOperation_Parameters();
+
+  /**
+   * Returns the meta object for class '{@link org.smalluml.smalluml.Parameter <em>Parameter</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Parameter</em>'.
+   * @see org.smalluml.smalluml.Parameter
+   * @generated
+   */
+  EClass getParameter();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.smalluml.smalluml.Parameter#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.smalluml.smalluml.Parameter#getName()
+   * @see #getParameter()
+   * @generated
+   */
+  EAttribute getParameter_Name();
+
+  /**
+   * Returns the meta object for the reference '{@link org.smalluml.smalluml.Parameter#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Type</em>'.
+   * @see org.smalluml.smalluml.Parameter#getType()
+   * @see #getParameter()
+   * @generated
+   */
+  EReference getParameter_Type();
 
   /**
    * Returns the meta object for class '{@link org.smalluml.smalluml.Class <em>Class</em>}'.
@@ -96,15 +701,99 @@ public interface SmallumlPackage extends EPackage
   EClass getClass_();
 
   /**
-   * Returns the meta object for the attribute '{@link org.smalluml.smalluml.Class#getName <em>Name</em>}'.
+   * Returns the meta object for the attribute '{@link org.smalluml.smalluml.Class#isIsAbstract <em>Is Abstract</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see org.smalluml.smalluml.Class#getName()
+   * @return the meta object for the attribute '<em>Is Abstract</em>'.
+   * @see org.smalluml.smalluml.Class#isIsAbstract()
    * @see #getClass_()
    * @generated
    */
-  EAttribute getClass_Name();
+  EAttribute getClass_IsAbstract();
+
+  /**
+   * Returns the meta object for the reference '{@link org.smalluml.smalluml.Class#getSuper <em>Super</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Super</em>'.
+   * @see org.smalluml.smalluml.Class#getSuper()
+   * @see #getClass_()
+   * @generated
+   */
+  EReference getClass_Super();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.smalluml.smalluml.Class#getAttribute <em>Attribute</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Attribute</em>'.
+   * @see org.smalluml.smalluml.Class#getAttribute()
+   * @see #getClass_()
+   * @generated
+   */
+  EReference getClass_Attribute();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.smalluml.smalluml.Class#getOperation <em>Operation</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Operation</em>'.
+   * @see org.smalluml.smalluml.Class#getOperation()
+   * @see #getClass_()
+   * @generated
+   */
+  EReference getClass_Operation();
+
+  /**
+   * Returns the meta object for class '{@link org.smalluml.smalluml.Integer <em>Integer</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Integer</em>'.
+   * @see org.smalluml.smalluml.Integer
+   * @generated
+   */
+  EClass getInteger();
+
+  /**
+   * Returns the meta object for class '{@link org.smalluml.smalluml.String <em>String</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>String</em>'.
+   * @see org.smalluml.smalluml.String
+   * @generated
+   */
+  EClass getString();
+
+  /**
+   * Returns the meta object for class '{@link org.smalluml.smalluml.Date <em>Date</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Date</em>'.
+   * @see org.smalluml.smalluml.Date
+   * @generated
+   */
+  EClass getDate();
+
+  /**
+   * Returns the meta object for class '{@link org.smalluml.smalluml.Inheritance <em>Inheritance</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Inheritance</em>'.
+   * @see org.smalluml.smalluml.Inheritance
+   * @generated
+   */
+  EClass getInheritance();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.smalluml.smalluml.Inheritance#getChildren <em>Children</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Children</em>'.
+   * @see org.smalluml.smalluml.Inheritance#getChildren()
+   * @see #getInheritance()
+   * @generated
+   */
+  EReference getInheritance_Children();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -130,6 +819,178 @@ public interface SmallumlPackage extends EPackage
   interface Literals
   {
     /**
+     * The meta object literal for the '{@link org.smalluml.smalluml.impl.SuperTypeImpl <em>Super Type</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.smalluml.smalluml.impl.SuperTypeImpl
+     * @see org.smalluml.smalluml.impl.SmallumlPackageImpl#getSuperType()
+     * @generated
+     */
+    EClass SUPER_TYPE = eINSTANCE.getSuperType();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SUPER_TYPE__NAME = eINSTANCE.getSuperType_Name();
+
+    /**
+     * The meta object literal for the '{@link org.smalluml.smalluml.impl.AttributeImpl <em>Attribute</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.smalluml.smalluml.impl.AttributeImpl
+     * @see org.smalluml.smalluml.impl.SmallumlPackageImpl#getAttribute()
+     * @generated
+     */
+    EClass ATTRIBUTE = eINSTANCE.getAttribute();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ATTRIBUTE__NAME = eINSTANCE.getAttribute_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ATTRIBUTE__TYPE = eINSTANCE.getAttribute_Type();
+
+    /**
+     * The meta object literal for the '{@link org.smalluml.smalluml.impl.RoleImpl <em>Role</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.smalluml.smalluml.impl.RoleImpl
+     * @see org.smalluml.smalluml.impl.SmallumlPackageImpl#getRole()
+     * @generated
+     */
+    EClass ROLE = eINSTANCE.getRole();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ROLE__NAME = eINSTANCE.getRole_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Lower Bound</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ROLE__LOWER_BOUND = eINSTANCE.getRole_LowerBound();
+
+    /**
+     * The meta object literal for the '<em><b>Upper Bound</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ROLE__UPPER_BOUND = eINSTANCE.getRole_UpperBound();
+
+    /**
+     * The meta object literal for the '{@link org.smalluml.smalluml.impl.AssociationImpl <em>Association</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.smalluml.smalluml.impl.AssociationImpl
+     * @see org.smalluml.smalluml.impl.SmallumlPackageImpl#getAssociation()
+     * @generated
+     */
+    EClass ASSOCIATION = eINSTANCE.getAssociation();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ASSOCIATION__NAME = eINSTANCE.getAssociation_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Role</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ASSOCIATION__ROLE = eINSTANCE.getAssociation_Role();
+
+    /**
+     * The meta object literal for the '{@link org.smalluml.smalluml.impl.OperationImpl <em>Operation</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.smalluml.smalluml.impl.OperationImpl
+     * @see org.smalluml.smalluml.impl.SmallumlPackageImpl#getOperation()
+     * @generated
+     */
+    EClass OPERATION = eINSTANCE.getOperation();
+
+    /**
+     * The meta object literal for the '<em><b>Is Abstract</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute OPERATION__IS_ABSTRACT = eINSTANCE.getOperation_IsAbstract();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute OPERATION__NAME = eINSTANCE.getOperation_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Return Type</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference OPERATION__RETURN_TYPE = eINSTANCE.getOperation_ReturnType();
+
+    /**
+     * The meta object literal for the '<em><b>Parameters</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference OPERATION__PARAMETERS = eINSTANCE.getOperation_Parameters();
+
+    /**
+     * The meta object literal for the '{@link org.smalluml.smalluml.impl.ParameterImpl <em>Parameter</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.smalluml.smalluml.impl.ParameterImpl
+     * @see org.smalluml.smalluml.impl.SmallumlPackageImpl#getParameter()
+     * @generated
+     */
+    EClass PARAMETER = eINSTANCE.getParameter();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PARAMETER__NAME = eINSTANCE.getParameter_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PARAMETER__TYPE = eINSTANCE.getParameter_Type();
+
+    /**
      * The meta object literal for the '{@link org.smalluml.smalluml.impl.ClassImpl <em>Class</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -140,12 +1001,84 @@ public interface SmallumlPackage extends EPackage
     EClass CLASS = eINSTANCE.getClass_();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Is Abstract</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute CLASS__NAME = eINSTANCE.getClass_Name();
+    EAttribute CLASS__IS_ABSTRACT = eINSTANCE.getClass_IsAbstract();
+
+    /**
+     * The meta object literal for the '<em><b>Super</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CLASS__SUPER = eINSTANCE.getClass_Super();
+
+    /**
+     * The meta object literal for the '<em><b>Attribute</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CLASS__ATTRIBUTE = eINSTANCE.getClass_Attribute();
+
+    /**
+     * The meta object literal for the '<em><b>Operation</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CLASS__OPERATION = eINSTANCE.getClass_Operation();
+
+    /**
+     * The meta object literal for the '{@link org.smalluml.smalluml.impl.IntegerImpl <em>Integer</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.smalluml.smalluml.impl.IntegerImpl
+     * @see org.smalluml.smalluml.impl.SmallumlPackageImpl#getInteger()
+     * @generated
+     */
+    EClass INTEGER = eINSTANCE.getInteger();
+
+    /**
+     * The meta object literal for the '{@link org.smalluml.smalluml.impl.StringImpl <em>String</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.smalluml.smalluml.impl.StringImpl
+     * @see org.smalluml.smalluml.impl.SmallumlPackageImpl#getString()
+     * @generated
+     */
+    EClass STRING = eINSTANCE.getString();
+
+    /**
+     * The meta object literal for the '{@link org.smalluml.smalluml.impl.DateImpl <em>Date</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.smalluml.smalluml.impl.DateImpl
+     * @see org.smalluml.smalluml.impl.SmallumlPackageImpl#getDate()
+     * @generated
+     */
+    EClass DATE = eINSTANCE.getDate();
+
+    /**
+     * The meta object literal for the '{@link org.smalluml.smalluml.impl.InheritanceImpl <em>Inheritance</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.smalluml.smalluml.impl.InheritanceImpl
+     * @see org.smalluml.smalluml.impl.SmallumlPackageImpl#getInheritance()
+     * @generated
+     */
+    EClass INHERITANCE = eINSTANCE.getInheritance();
+
+    /**
+     * The meta object literal for the '<em><b>Children</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference INHERITANCE__CHILDREN = eINSTANCE.getInheritance_Children();
 
   }
 
