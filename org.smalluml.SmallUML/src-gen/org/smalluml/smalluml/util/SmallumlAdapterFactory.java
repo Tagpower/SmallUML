@@ -13,7 +13,9 @@ import org.eclipse.emf.ecore.EObject;
 import org.smalluml.smalluml.Association;
 import org.smalluml.smalluml.Attribute;
 import org.smalluml.smalluml.Date;
+import org.smalluml.smalluml.Enumeration;
 import org.smalluml.smalluml.Inheritance;
+import org.smalluml.smalluml.NamedElement;
 import org.smalluml.smalluml.Operation;
 import org.smalluml.smalluml.Parameter;
 import org.smalluml.smalluml.Role;
@@ -84,6 +86,16 @@ public class SmallumlAdapterFactory extends AdapterFactoryImpl
     new SmallumlSwitch<Adapter>()
     {
       @Override
+      public Adapter casePackage(org.smalluml.smalluml.Package object)
+      {
+        return createPackageAdapter();
+      }
+      @Override
+      public Adapter caseNamedElement(NamedElement object)
+      {
+        return createNamedElementAdapter();
+      }
+      @Override
       public Adapter caseSuperType(SuperType object)
       {
         return createSuperTypeAdapter();
@@ -134,6 +146,11 @@ public class SmallumlAdapterFactory extends AdapterFactoryImpl
         return createDateAdapter();
       }
       @Override
+      public Adapter caseEnumeration(Enumeration object)
+      {
+        return createEnumerationAdapter();
+      }
+      @Override
       public Adapter caseInheritance(Inheritance object)
       {
         return createInheritanceAdapter();
@@ -159,6 +176,36 @@ public class SmallumlAdapterFactory extends AdapterFactoryImpl
     return modelSwitch.doSwitch((EObject)target);
   }
 
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.smalluml.smalluml.Package <em>Package</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.smalluml.smalluml.Package
+   * @generated
+   */
+  public Adapter createPackageAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.smalluml.smalluml.NamedElement <em>Named Element</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.smalluml.smalluml.NamedElement
+   * @generated
+   */
+  public Adapter createNamedElementAdapter()
+  {
+    return null;
+  }
 
   /**
    * Creates a new adapter for an object of class '{@link org.smalluml.smalluml.SuperType <em>Super Type</em>}'.
@@ -306,6 +353,21 @@ public class SmallumlAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createDateAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.smalluml.smalluml.Enumeration <em>Enumeration</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.smalluml.smalluml.Enumeration
+   * @generated
+   */
+  public Adapter createEnumerationAdapter()
   {
     return null;
   }

@@ -3,48 +3,59 @@
  */
 package org.smalluml.smalluml.impl;
 
+import java.lang.String;
+
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.smalluml.smalluml.Parameter;
+import org.smalluml.smalluml.NamedElement;
 import org.smalluml.smalluml.SmallumlPackage;
-import org.smalluml.smalluml.SuperType;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Parameter</b></em>'.
+ * An implementation of the model object '<em><b>Named Element</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.smalluml.smalluml.impl.ParameterImpl#getType <em>Type</em>}</li>
+ *   <li>{@link org.smalluml.smalluml.impl.NamedElementImpl#getName <em>Name</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ParameterImpl extends NamedElementImpl implements Parameter
+public class NamedElementImpl extends MinimalEObjectImpl.Container implements NamedElement
 {
   /**
-   * The cached value of the '{@link #getType() <em>Type</em>}' reference.
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getType()
+   * @see #getName()
    * @generated
    * @ordered
    */
-  protected SuperType type;
+  protected static final String NAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected String name = NAME_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected ParameterImpl()
+  protected NamedElementImpl()
   {
     super();
   }
@@ -57,7 +68,7 @@ public class ParameterImpl extends NamedElementImpl implements Parameter
   @Override
   protected EClass eStaticClass()
   {
-    return SmallumlPackage.Literals.PARAMETER;
+    return SmallumlPackage.Literals.NAMED_ELEMENT;
   }
 
   /**
@@ -65,19 +76,9 @@ public class ParameterImpl extends NamedElementImpl implements Parameter
    * <!-- end-user-doc -->
    * @generated
    */
-  public SuperType getType()
+  public String getName()
   {
-    if (type != null && type.eIsProxy())
-    {
-      InternalEObject oldType = (InternalEObject)type;
-      type = (SuperType)eResolveProxy(oldType);
-      if (type != oldType)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, SmallumlPackage.PARAMETER__TYPE, oldType, type));
-      }
-    }
-    return type;
+    return name;
   }
 
   /**
@@ -85,22 +86,12 @@ public class ParameterImpl extends NamedElementImpl implements Parameter
    * <!-- end-user-doc -->
    * @generated
    */
-  public SuperType basicGetType()
+  public void setName(String newName)
   {
-    return type;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setType(SuperType newType)
-  {
-    SuperType oldType = type;
-    type = newType;
+    String oldName = name;
+    name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, SmallumlPackage.PARAMETER__TYPE, oldType, type));
+      eNotify(new ENotificationImpl(this, Notification.SET, SmallumlPackage.NAMED_ELEMENT__NAME, oldName, name));
   }
 
   /**
@@ -113,9 +104,8 @@ public class ParameterImpl extends NamedElementImpl implements Parameter
   {
     switch (featureID)
     {
-      case SmallumlPackage.PARAMETER__TYPE:
-        if (resolve) return getType();
-        return basicGetType();
+      case SmallumlPackage.NAMED_ELEMENT__NAME:
+        return getName();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -130,8 +120,8 @@ public class ParameterImpl extends NamedElementImpl implements Parameter
   {
     switch (featureID)
     {
-      case SmallumlPackage.PARAMETER__TYPE:
-        setType((SuperType)newValue);
+      case SmallumlPackage.NAMED_ELEMENT__NAME:
+        setName((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -147,8 +137,8 @@ public class ParameterImpl extends NamedElementImpl implements Parameter
   {
     switch (featureID)
     {
-      case SmallumlPackage.PARAMETER__TYPE:
-        setType((SuperType)null);
+      case SmallumlPackage.NAMED_ELEMENT__NAME:
+        setName(NAME_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -164,10 +154,27 @@ public class ParameterImpl extends NamedElementImpl implements Parameter
   {
     switch (featureID)
     {
-      case SmallumlPackage.PARAMETER__TYPE:
-        return type != null;
+      case SmallumlPackage.NAMED_ELEMENT__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
     }
     return super.eIsSet(featureID);
   }
 
-} //ParameterImpl
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (name: ");
+    result.append(name);
+    result.append(')');
+    return result.toString();
+  }
+
+} //NamedElementImpl

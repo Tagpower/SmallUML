@@ -3,15 +3,12 @@
  */
 package org.smalluml.smalluml.impl;
 
-import java.lang.String;
-
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.smalluml.smalluml.Attribute;
 import org.smalluml.smalluml.SmallumlPackage;
@@ -25,34 +22,13 @@ import org.smalluml.smalluml.SuperType;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.smalluml.smalluml.impl.AttributeImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.smalluml.smalluml.impl.AttributeImpl#getType <em>Type</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class AttributeImpl extends MinimalEObjectImpl.Container implements Attribute
+public class AttributeImpl extends NamedElementImpl implements Attribute
 {
-  /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected static final String NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected String name = NAME_EDEFAULT;
-
   /**
    * The cached value of the '{@link #getType() <em>Type</em>}' reference.
    * <!-- begin-user-doc -->
@@ -82,29 +58,6 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
   protected EClass eStaticClass()
   {
     return SmallumlPackage.Literals.ATTRIBUTE;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getName()
-  {
-    return name;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setName(String newName)
-  {
-    String oldName = name;
-    name = newName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, SmallumlPackage.ATTRIBUTE__NAME, oldName, name));
   }
 
   /**
@@ -160,8 +113,6 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
   {
     switch (featureID)
     {
-      case SmallumlPackage.ATTRIBUTE__NAME:
-        return getName();
       case SmallumlPackage.ATTRIBUTE__TYPE:
         if (resolve) return getType();
         return basicGetType();
@@ -179,9 +130,6 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
   {
     switch (featureID)
     {
-      case SmallumlPackage.ATTRIBUTE__NAME:
-        setName((String)newValue);
-        return;
       case SmallumlPackage.ATTRIBUTE__TYPE:
         setType((SuperType)newValue);
         return;
@@ -199,9 +147,6 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
   {
     switch (featureID)
     {
-      case SmallumlPackage.ATTRIBUTE__NAME:
-        setName(NAME_EDEFAULT);
-        return;
       case SmallumlPackage.ATTRIBUTE__TYPE:
         setType((SuperType)null);
         return;
@@ -219,29 +164,10 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
   {
     switch (featureID)
     {
-      case SmallumlPackage.ATTRIBUTE__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case SmallumlPackage.ATTRIBUTE__TYPE:
         return type != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
-    result.append(name);
-    result.append(')');
-    return result.toString();
   }
 
 } //AttributeImpl

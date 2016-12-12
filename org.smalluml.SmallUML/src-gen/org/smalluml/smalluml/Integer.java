@@ -14,6 +14,6 @@ package org.smalluml.smalluml;
  * @model
  * @generated
  */
-public interface Integer extends SuperType
+public interface Integer extends NamedElement, SuperType
 {
 } // Integer

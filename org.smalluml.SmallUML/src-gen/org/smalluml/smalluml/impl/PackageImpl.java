@@ -12,44 +12,45 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.smalluml.smalluml.Association;
-import org.smalluml.smalluml.Role;
+import org.smalluml.smalluml.NamedElement;
 import org.smalluml.smalluml.SmallumlPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Association</b></em>'.
+ * An implementation of the model object '<em><b>Package</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.smalluml.smalluml.impl.AssociationImpl#getRole <em>Role</em>}</li>
+ *   <li>{@link org.smalluml.smalluml.impl.PackageImpl#getElements <em>Elements</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class AssociationImpl extends NamedElementImpl implements Association
+public class PackageImpl extends MinimalEObjectImpl.Container implements org.smalluml.smalluml.Package
 {
   /**
-   * The cached value of the '{@link #getRole() <em>Role</em>}' containment reference list.
+   * The cached value of the '{@link #getElements() <em>Elements</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getRole()
+   * @see #getElements()
    * @generated
    * @ordered
    */
-  protected EList<Role> role;
+  protected EList<NamedElement> elements;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected AssociationImpl()
+  protected PackageImpl()
   {
     super();
   }
@@ -62,7 +63,7 @@ public class AssociationImpl extends NamedElementImpl implements Association
   @Override
   protected EClass eStaticClass()
   {
-    return SmallumlPackage.Literals.ASSOCIATION;
+    return SmallumlPackage.Literals.PACKAGE;
   }
 
   /**
@@ -70,13 +71,13 @@ public class AssociationImpl extends NamedElementImpl implements Association
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Role> getRole()
+  public EList<NamedElement> getElements()
   {
-    if (role == null)
+    if (elements == null)
     {
-      role = new EObjectContainmentEList<Role>(Role.class, this, SmallumlPackage.ASSOCIATION__ROLE);
+      elements = new EObjectContainmentEList<NamedElement>(NamedElement.class, this, SmallumlPackage.PACKAGE__ELEMENTS);
     }
-    return role;
+    return elements;
   }
 
   /**
@@ -89,8 +90,8 @@ public class AssociationImpl extends NamedElementImpl implements Association
   {
     switch (featureID)
     {
-      case SmallumlPackage.ASSOCIATION__ROLE:
-        return ((InternalEList<?>)getRole()).basicRemove(otherEnd, msgs);
+      case SmallumlPackage.PACKAGE__ELEMENTS:
+        return ((InternalEList<?>)getElements()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -105,8 +106,8 @@ public class AssociationImpl extends NamedElementImpl implements Association
   {
     switch (featureID)
     {
-      case SmallumlPackage.ASSOCIATION__ROLE:
-        return getRole();
+      case SmallumlPackage.PACKAGE__ELEMENTS:
+        return getElements();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -122,9 +123,9 @@ public class AssociationImpl extends NamedElementImpl implements Association
   {
     switch (featureID)
     {
-      case SmallumlPackage.ASSOCIATION__ROLE:
-        getRole().clear();
-        getRole().addAll((Collection<? extends Role>)newValue);
+      case SmallumlPackage.PACKAGE__ELEMENTS:
+        getElements().clear();
+        getElements().addAll((Collection<? extends NamedElement>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -140,8 +141,8 @@ public class AssociationImpl extends NamedElementImpl implements Association
   {
     switch (featureID)
     {
-      case SmallumlPackage.ASSOCIATION__ROLE:
-        getRole().clear();
+      case SmallumlPackage.PACKAGE__ELEMENTS:
+        getElements().clear();
         return;
     }
     super.eUnset(featureID);
@@ -157,10 +158,10 @@ public class AssociationImpl extends NamedElementImpl implements Association
   {
     switch (featureID)
     {
-      case SmallumlPackage.ASSOCIATION__ROLE:
-        return role != null && !role.isEmpty();
+      case SmallumlPackage.PACKAGE__ELEMENTS:
+        return elements != null && !elements.isEmpty();
     }
     return super.eIsSet(featureID);
   }
 
-} //AssociationImpl
+} //PackageImpl

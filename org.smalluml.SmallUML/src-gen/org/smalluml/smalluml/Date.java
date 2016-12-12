@@ -14,6 +14,6 @@ package org.smalluml.smalluml;
  * @model
  * @generated
  */
-public interface Date extends SuperType
+public interface Date extends NamedElement, SuperType
 {
 } // Date

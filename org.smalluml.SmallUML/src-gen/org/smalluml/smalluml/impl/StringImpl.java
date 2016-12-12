@@ -14,7 +14,7 @@ import org.smalluml.smalluml.SmallumlPackage;
  *
  * @generated
  */
-public class StringImpl extends SuperTypeImpl implements org.smalluml.smalluml.String
+public class StringImpl extends NamedElementImpl implements org.smalluml.smalluml.String
 {
   /**
    * <!-- begin-user-doc -->

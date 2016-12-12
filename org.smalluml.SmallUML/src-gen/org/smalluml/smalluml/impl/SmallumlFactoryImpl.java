@@ -14,7 +14,9 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.smalluml.smalluml.Association;
 import org.smalluml.smalluml.Attribute;
 import org.smalluml.smalluml.Date;
+import org.smalluml.smalluml.Enumeration;
 import org.smalluml.smalluml.Inheritance;
+import org.smalluml.smalluml.NamedElement;
 import org.smalluml.smalluml.Operation;
 import org.smalluml.smalluml.Parameter;
 import org.smalluml.smalluml.Role;
@@ -74,6 +76,8 @@ public class SmallumlFactoryImpl extends EFactoryImpl implements SmallumlFactory
   {
     switch (eClass.getClassifierID())
     {
+      case SmallumlPackage.PACKAGE: return createPackage();
+      case SmallumlPackage.NAMED_ELEMENT: return createNamedElement();
       case SmallumlPackage.SUPER_TYPE: return createSuperType();
       case SmallumlPackage.ATTRIBUTE: return createAttribute();
       case SmallumlPackage.ROLE: return createRole();
@@ -84,10 +88,33 @@ public class SmallumlFactoryImpl extends EFactoryImpl implements SmallumlFactory
       case SmallumlPackage.INTEGER: return createInteger();
       case SmallumlPackage.STRING: return createString();
       case SmallumlPackage.DATE: return createDate();
+      case SmallumlPackage.ENUMERATION: return createEnumeration();
       case SmallumlPackage.INHERITANCE: return createInheritance();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public org.smalluml.smalluml.Package createPackage()
+  {
+    PackageImpl package_ = new PackageImpl();
+    return package_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NamedElement createNamedElement()
+  {
+    NamedElementImpl namedElement = new NamedElementImpl();
+    return namedElement;
   }
 
   /**
@@ -198,6 +225,17 @@ public class SmallumlFactoryImpl extends EFactoryImpl implements SmallumlFactory
   {
     DateImpl date = new DateImpl();
     return date;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Enumeration createEnumeration()
+  {
+    EnumerationImpl enumeration = new EnumerationImpl();
+    return enumeration;
   }
 
   /**

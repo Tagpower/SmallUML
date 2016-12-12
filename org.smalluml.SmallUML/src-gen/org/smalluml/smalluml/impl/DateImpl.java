@@ -15,7 +15,7 @@ import org.smalluml.smalluml.SmallumlPackage;
  *
  * @generated
  */
-public class DateImpl extends SuperTypeImpl implements Date
+public class DateImpl extends NamedElementImpl implements Date
 {
   /**
    * <!-- begin-user-doc -->

@@ -24,6 +24,127 @@ import org.eclipse.xtext.service.GrammarProvider;
 @Singleton
 public class SmallUMLGrammarAccess extends AbstractGrammarElementFinder {
 	
+	public class PackageElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.smalluml.SmallUML.Package");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cPackageAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cPackageKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cElementsKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_3_1 = (Keyword)cGroup_3.eContents().get(1);
+		private final Assignment cElementsAssignment_3_2 = (Assignment)cGroup_3.eContents().get(2);
+		private final RuleCall cElementsNamedElementParserRuleCall_3_2_0 = (RuleCall)cElementsAssignment_3_2.eContents().get(0);
+		private final Group cGroup_3_3 = (Group)cGroup_3.eContents().get(3);
+		private final Keyword cCommaKeyword_3_3_0 = (Keyword)cGroup_3_3.eContents().get(0);
+		private final Assignment cElementsAssignment_3_3_1 = (Assignment)cGroup_3_3.eContents().get(1);
+		private final RuleCall cElementsNamedElementParserRuleCall_3_3_1_0 = (RuleCall)cElementsAssignment_3_3_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_3_4 = (Keyword)cGroup_3.eContents().get(4);
+		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		
+		//Package:
+		//	{Package}
+		//	'Package'
+		//	'{' ('elements' '{' elements+=NamedElement ("," elements+=NamedElement)* '}')?
+		//	'}';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{Package} 'Package' '{' ('elements' '{' elements+=NamedElement ("," elements+=NamedElement)* '}')? '}'
+		public Group getGroup() { return cGroup; }
+		
+		//{Package}
+		public Action getPackageAction_0() { return cPackageAction_0; }
+		
+		//'Package'
+		public Keyword getPackageKeyword_1() { return cPackageKeyword_1; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+		
+		//('elements' '{' elements+=NamedElement ("," elements+=NamedElement)* '}')?
+		public Group getGroup_3() { return cGroup_3; }
+		
+		//'elements'
+		public Keyword getElementsKeyword_3_0() { return cElementsKeyword_3_0; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_3_1() { return cLeftCurlyBracketKeyword_3_1; }
+		
+		//elements+=NamedElement
+		public Assignment getElementsAssignment_3_2() { return cElementsAssignment_3_2; }
+		
+		//NamedElement
+		public RuleCall getElementsNamedElementParserRuleCall_3_2_0() { return cElementsNamedElementParserRuleCall_3_2_0; }
+		
+		//("," elements+=NamedElement)*
+		public Group getGroup_3_3() { return cGroup_3_3; }
+		
+		//","
+		public Keyword getCommaKeyword_3_3_0() { return cCommaKeyword_3_3_0; }
+		
+		//elements+=NamedElement
+		public Assignment getElementsAssignment_3_3_1() { return cElementsAssignment_3_3_1; }
+		
+		//NamedElement
+		public RuleCall getElementsNamedElementParserRuleCall_3_3_1_0() { return cElementsNamedElementParserRuleCall_3_3_1_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_3_4() { return cRightCurlyBracketKeyword_3_4; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
+	}
+	public class NamedElementElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.smalluml.SmallUML.NamedElement");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cAttributeParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cRoleParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cAssociationParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cOperationParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final RuleCall cParameterParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
+		private final RuleCall cClassParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
+		private final RuleCall cIntegerParserRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
+		private final RuleCall cString0ParserRuleCall_7 = (RuleCall)cAlternatives.eContents().get(7);
+		private final RuleCall cDateParserRuleCall_8 = (RuleCall)cAlternatives.eContents().get(8);
+		private final RuleCall cEnumerationParserRuleCall_9 = (RuleCall)cAlternatives.eContents().get(9);
+		
+		//NamedElement:
+		//	Attribute | Role | Association | Operation | Parameter | Class | Integer | String0 | Date | Enumeration;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//Attribute | Role | Association | Operation | Parameter | Class | Integer | String0 | Date | Enumeration
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//Attribute
+		public RuleCall getAttributeParserRuleCall_0() { return cAttributeParserRuleCall_0; }
+		
+		//Role
+		public RuleCall getRoleParserRuleCall_1() { return cRoleParserRuleCall_1; }
+		
+		//Association
+		public RuleCall getAssociationParserRuleCall_2() { return cAssociationParserRuleCall_2; }
+		
+		//Operation
+		public RuleCall getOperationParserRuleCall_3() { return cOperationParserRuleCall_3; }
+		
+		//Parameter
+		public RuleCall getParameterParserRuleCall_4() { return cParameterParserRuleCall_4; }
+		
+		//Class
+		public RuleCall getClassParserRuleCall_5() { return cClassParserRuleCall_5; }
+		
+		//Integer
+		public RuleCall getIntegerParserRuleCall_6() { return cIntegerParserRuleCall_6; }
+		
+		//String0
+		public RuleCall getString0ParserRuleCall_7() { return cString0ParserRuleCall_7; }
+		
+		//Date
+		public RuleCall getDateParserRuleCall_8() { return cDateParserRuleCall_8; }
+		
+		//Enumeration
+		public RuleCall getEnumerationParserRuleCall_9() { return cEnumerationParserRuleCall_9; }
+	}
 	public class SuperTypeElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.smalluml.SmallUML.SuperType");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
@@ -134,7 +255,11 @@ public class SmallUMLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cUpperBoundKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		private final Assignment cUpperBoundAssignment_6 = (Assignment)cGroup.eContents().get(6);
 		private final RuleCall cUpperBoundEIntParserRuleCall_6_0 = (RuleCall)cUpperBoundAssignment_6.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Keyword cClassKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Assignment cClassAssignment_8 = (Assignment)cGroup.eContents().get(8);
+		private final CrossReference cClassClassCrossReference_8_0 = (CrossReference)cClassAssignment_8.eContents().get(0);
+		private final RuleCall cClassClassEStringParserRuleCall_8_0_1 = (RuleCall)cClassClassCrossReference_8_0.eContents().get(1);
+		private final Keyword cRightCurlyBracketKeyword_9 = (Keyword)cGroup.eContents().get(9);
 		
 		//Role:
 		//	'Role'
@@ -142,10 +267,11 @@ public class SmallUMLGrammarAccess extends AbstractGrammarElementFinder {
 		//	'{'
 		//	'lowerBound' lowerBound=EInt
 		//	'upperBound' upperBound=EInt
+		//	'class' class=[Class|EString]
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Role' name=EString '{' 'lowerBound' lowerBound=EInt 'upperBound' upperBound=EInt '}'
+		//'Role' name=EString '{' 'lowerBound' lowerBound=EInt 'upperBound' upperBound=EInt 'class' class=[Class|EString] '}'
 		public Group getGroup() { return cGroup; }
 		
 		//'Role'
@@ -178,8 +304,20 @@ public class SmallUMLGrammarAccess extends AbstractGrammarElementFinder {
 		//EInt
 		public RuleCall getUpperBoundEIntParserRuleCall_6_0() { return cUpperBoundEIntParserRuleCall_6_0; }
 		
+		//'class'
+		public Keyword getClassKeyword_7() { return cClassKeyword_7; }
+		
+		//class=[Class|EString]
+		public Assignment getClassAssignment_8() { return cClassAssignment_8; }
+		
+		//[Class|EString]
+		public CrossReference getClassClassCrossReference_8_0() { return cClassClassCrossReference_8_0; }
+		
+		//EString
+		public RuleCall getClassClassEStringParserRuleCall_8_0_1() { return cClassClassEStringParserRuleCall_8_0_1; }
+		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
+		public Keyword getRightCurlyBracketKeyword_9() { return cRightCurlyBracketKeyword_9; }
 	}
 	public class AssociationElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.smalluml.SmallUML.Association");
@@ -641,6 +779,77 @@ public class SmallUMLGrammarAccess extends AbstractGrammarElementFinder {
 		//EString
 		public RuleCall getNameEStringParserRuleCall_2_0() { return cNameEStringParserRuleCall_2_0; }
 	}
+	public class EnumerationElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.smalluml.SmallUML.Enumeration");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cEnumerationKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameEStringParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Keyword cSupertypeKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Keyword cLeftCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cSupertypeAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cSupertypeSuperTypeParserRuleCall_5_0 = (RuleCall)cSupertypeAssignment_5.eContents().get(0);
+		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
+		private final Keyword cCommaKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
+		private final Assignment cSupertypeAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
+		private final RuleCall cSupertypeSuperTypeParserRuleCall_6_1_0 = (RuleCall)cSupertypeAssignment_6_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Keyword cRightCurlyBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
+		
+		//Enumeration:
+		//	'Enumeration'
+		//	name=EString
+		//	'{'
+		//	'supertype' '{' supertype+=SuperType ("," supertype+=SuperType)* '}'
+		//	'}';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'Enumeration' name=EString '{' 'supertype' '{' supertype+=SuperType ("," supertype+=SuperType)* '}' '}'
+		public Group getGroup() { return cGroup; }
+		
+		//'Enumeration'
+		public Keyword getEnumerationKeyword_0() { return cEnumerationKeyword_0; }
+		
+		//name=EString
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//EString
+		public RuleCall getNameEStringParserRuleCall_1_0() { return cNameEStringParserRuleCall_1_0; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+		
+		//'supertype'
+		public Keyword getSupertypeKeyword_3() { return cSupertypeKeyword_3; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_4() { return cLeftCurlyBracketKeyword_4; }
+		
+		//supertype+=SuperType
+		public Assignment getSupertypeAssignment_5() { return cSupertypeAssignment_5; }
+		
+		//SuperType
+		public RuleCall getSupertypeSuperTypeParserRuleCall_5_0() { return cSupertypeSuperTypeParserRuleCall_5_0; }
+		
+		//("," supertype+=SuperType)*
+		public Group getGroup_6() { return cGroup_6; }
+		
+		//","
+		public Keyword getCommaKeyword_6_0() { return cCommaKeyword_6_0; }
+		
+		//supertype+=SuperType
+		public Assignment getSupertypeAssignment_6_1() { return cSupertypeAssignment_6_1; }
+		
+		//SuperType
+		public RuleCall getSupertypeSuperTypeParserRuleCall_6_1_0() { return cSupertypeSuperTypeParserRuleCall_6_1_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_8() { return cRightCurlyBracketKeyword_8; }
+	}
 	public class EIntElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.smalluml.SmallUML.EInt");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -751,6 +960,8 @@ public class SmallUMLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	
+	private final PackageElements pPackage;
+	private final NamedElementElements pNamedElement;
 	private final SuperTypeElements pSuperType;
 	private final EStringElements pEString;
 	private final AttributeElements pAttribute;
@@ -762,6 +973,7 @@ public class SmallUMLGrammarAccess extends AbstractGrammarElementFinder {
 	private final IntegerElements pInteger;
 	private final String0Elements pString0;
 	private final DateElements pDate;
+	private final EnumerationElements pEnumeration;
 	private final EIntElements pEInt;
 	private final EBooleanElements pEBoolean;
 	private final InheritanceElements pInheritance;
@@ -775,6 +987,8 @@ public class SmallUMLGrammarAccess extends AbstractGrammarElementFinder {
 			TerminalsGrammarAccess gaTerminals) {
 		this.grammar = internalFindGrammar(grammarProvider);
 		this.gaTerminals = gaTerminals;
+		this.pPackage = new PackageElements();
+		this.pNamedElement = new NamedElementElements();
 		this.pSuperType = new SuperTypeElements();
 		this.pEString = new EStringElements();
 		this.pAttribute = new AttributeElements();
@@ -786,6 +1000,7 @@ public class SmallUMLGrammarAccess extends AbstractGrammarElementFinder {
 		this.pInteger = new IntegerElements();
 		this.pString0 = new String0Elements();
 		this.pDate = new DateElements();
+		this.pEnumeration = new EnumerationElements();
 		this.pEInt = new EIntElements();
 		this.pEBoolean = new EBooleanElements();
 		this.pInheritance = new InheritanceElements();
@@ -817,6 +1032,29 @@ public class SmallUMLGrammarAccess extends AbstractGrammarElementFinder {
 		return gaTerminals;
 	}
 
+	
+	//Package:
+	//	{Package}
+	//	'Package'
+	//	'{' ('elements' '{' elements+=NamedElement ("," elements+=NamedElement)* '}')?
+	//	'}';
+	public PackageElements getPackageAccess() {
+		return pPackage;
+	}
+	
+	public ParserRule getPackageRule() {
+		return getPackageAccess().getRule();
+	}
+	
+	//NamedElement:
+	//	Attribute | Role | Association | Operation | Parameter | Class | Integer | String0 | Date | Enumeration;
+	public NamedElementElements getNamedElementAccess() {
+		return pNamedElement;
+	}
+	
+	public ParserRule getNamedElementRule() {
+		return getNamedElementAccess().getRule();
+	}
 	
 	//SuperType:
 	//	Class | Integer | String0 | Date;
@@ -858,6 +1096,7 @@ public class SmallUMLGrammarAccess extends AbstractGrammarElementFinder {
 	//	'{'
 	//	'lowerBound' lowerBound=EInt
 	//	'upperBound' upperBound=EInt
+	//	'class' class=[Class|EString]
 	//	'}';
 	public RoleElements getRoleAccess() {
 		return pRole;
@@ -959,6 +1198,20 @@ public class SmallUMLGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getDateRule() {
 		return getDateAccess().getRule();
+	}
+	
+	//Enumeration:
+	//	'Enumeration'
+	//	name=EString
+	//	'{'
+	//	'supertype' '{' supertype+=SuperType ("," supertype+=SuperType)* '}'
+	//	'}';
+	public EnumerationElements getEnumerationAccess() {
+		return pEnumeration;
+	}
+	
+	public ParserRule getEnumerationRule() {
+		return getEnumerationAccess().getRule();
 	}
 	
 	//EInt ecore::EInt:

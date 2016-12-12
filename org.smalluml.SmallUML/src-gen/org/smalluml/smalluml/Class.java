@@ -24,7 +24,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface Class extends SuperType
+public interface Class extends NamedElement, SuperType
 {
   /**
    * Returns the value of the '<em><b>Is Abstract</b></em>' attribute.

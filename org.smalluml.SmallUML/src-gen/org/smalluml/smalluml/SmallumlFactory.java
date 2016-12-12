@@ -24,6 +24,24 @@ public interface SmallumlFactory extends EFactory
   SmallumlFactory eINSTANCE = org.smalluml.smalluml.impl.SmallumlFactoryImpl.init();
 
   /**
+   * Returns a new object of class '<em>Package</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Package</em>'.
+   * @generated
+   */
+  Package createPackage();
+
+  /**
+   * Returns a new object of class '<em>Named Element</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Named Element</em>'.
+   * @generated
+   */
+  NamedElement createNamedElement();
+
+  /**
    * Returns a new object of class '<em>Super Type</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -112,6 +130,15 @@ public interface SmallumlFactory extends EFactory
    * @generated
    */
   Date createDate();
+
+  /**
+   * Returns a new object of class '<em>Enumeration</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Enumeration</em>'.
+   * @generated
+   */
+  Enumeration createEnumeration();
 
   /**
    * Returns a new object of class '<em>Inheritance</em>'.

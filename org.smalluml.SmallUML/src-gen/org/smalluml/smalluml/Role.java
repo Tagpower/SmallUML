@@ -3,9 +3,6 @@
  */
 package org.smalluml.smalluml;
 
-import java.lang.String;
-
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -16,43 +13,17 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.smalluml.smalluml.Role#getName <em>Name</em>}</li>
  *   <li>{@link org.smalluml.smalluml.Role#getLowerBound <em>Lower Bound</em>}</li>
  *   <li>{@link org.smalluml.smalluml.Role#getUpperBound <em>Upper Bound</em>}</li>
+ *   <li>{@link org.smalluml.smalluml.Role#getClass_ <em>Class</em>}</li>
  * </ul>
  *
  * @see org.smalluml.smalluml.SmallumlPackage#getRole()
  * @model
  * @generated
  */
-public interface Role extends EObject
+public interface Role extends NamedElement
 {
-  /**
-   * Returns the value of the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Name</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Name</em>' attribute.
-   * @see #setName(String)
-   * @see org.smalluml.smalluml.SmallumlPackage#getRole_Name()
-   * @model
-   * @generated
-   */
-  String getName();
-
-  /**
-   * Sets the value of the '{@link org.smalluml.smalluml.Role#getName <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Name</em>' attribute.
-   * @see #getName()
-   * @generated
-   */
-  void setName(String value);
-
   /**
    * Returns the value of the '<em><b>Lower Bound</b></em>' attribute.
    * <!-- begin-user-doc -->
@@ -104,5 +75,31 @@ public interface Role extends EObject
    * @generated
    */
   void setUpperBound(int value);
+
+  /**
+   * Returns the value of the '<em><b>Class</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Class</em>' reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Class</em>' reference.
+   * @see #setClass(org.smalluml.smalluml.Class)
+   * @see org.smalluml.smalluml.SmallumlPackage#getRole_Class()
+   * @model
+   * @generated
+   */
+  org.smalluml.smalluml.Class getClass_();
+
+  /**
+   * Sets the value of the '{@link org.smalluml.smalluml.Role#getClass_ <em>Class</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Class</em>' reference.
+   * @see #getClass_()
+   * @generated
+   */
+  void setClass(org.smalluml.smalluml.Class value);
 
 } // Role

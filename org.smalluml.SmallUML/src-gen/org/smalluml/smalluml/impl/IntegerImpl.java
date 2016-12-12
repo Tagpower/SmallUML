@@ -14,7 +14,7 @@ import org.smalluml.smalluml.SmallumlPackage;
  *
  * @generated
  */
-public class IntegerImpl extends SuperTypeImpl implements org.smalluml.smalluml.Integer
+public class IntegerImpl extends NamedElementImpl implements org.smalluml.smalluml.Integer
 {
   /**
    * <!-- begin-user-doc -->

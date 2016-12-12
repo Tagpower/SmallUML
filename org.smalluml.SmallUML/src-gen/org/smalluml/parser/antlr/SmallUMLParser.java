@@ -27,7 +27,7 @@ public class SmallUMLParser extends AbstractAntlrParser {
 
 	@Override 
 	protected String getDefaultRuleName() {
-		return "SuperType";
+		return "Package";
 	}
 
 	public SmallUMLGrammarAccess getGrammarAccess() {

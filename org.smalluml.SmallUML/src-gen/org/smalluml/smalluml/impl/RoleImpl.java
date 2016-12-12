@@ -4,14 +4,13 @@
 package org.smalluml.smalluml.impl;
 
 import java.lang.Integer;
-import java.lang.String;
 
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.smalluml.smalluml.Role;
 import org.smalluml.smalluml.SmallumlPackage;
@@ -24,35 +23,15 @@ import org.smalluml.smalluml.SmallumlPackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.smalluml.smalluml.impl.RoleImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.smalluml.smalluml.impl.RoleImpl#getLowerBound <em>Lower Bound</em>}</li>
  *   <li>{@link org.smalluml.smalluml.impl.RoleImpl#getUpperBound <em>Upper Bound</em>}</li>
+ *   <li>{@link org.smalluml.smalluml.impl.RoleImpl#getClass_ <em>Class</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class RoleImpl extends MinimalEObjectImpl.Container implements Role
+public class RoleImpl extends NamedElementImpl implements Role
 {
-  /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected static final String NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected String name = NAME_EDEFAULT;
-
   /**
    * The default value of the '{@link #getLowerBound() <em>Lower Bound</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -94,6 +73,16 @@ public class RoleImpl extends MinimalEObjectImpl.Container implements Role
   protected int upperBound = UPPER_BOUND_EDEFAULT;
 
   /**
+   * The cached value of the '{@link #getClass_() <em>Class</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getClass_()
+   * @generated
+   * @ordered
+   */
+  protected org.smalluml.smalluml.Class class_;
+
+  /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -112,29 +101,6 @@ public class RoleImpl extends MinimalEObjectImpl.Container implements Role
   protected EClass eStaticClass()
   {
     return SmallumlPackage.Literals.ROLE;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getName()
-  {
-    return name;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setName(String newName)
-  {
-    String oldName = name;
-    name = newName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, SmallumlPackage.ROLE__NAME, oldName, name));
   }
 
   /**
@@ -188,17 +154,61 @@ public class RoleImpl extends MinimalEObjectImpl.Container implements Role
    * <!-- end-user-doc -->
    * @generated
    */
+  public org.smalluml.smalluml.Class getClass_()
+  {
+    if (class_ != null && class_.eIsProxy())
+    {
+      InternalEObject oldClass = (InternalEObject)class_;
+      class_ = (org.smalluml.smalluml.Class)eResolveProxy(oldClass);
+      if (class_ != oldClass)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, SmallumlPackage.ROLE__CLASS, oldClass, class_));
+      }
+    }
+    return class_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public org.smalluml.smalluml.Class basicGetClass()
+  {
+    return class_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setClass(org.smalluml.smalluml.Class newClass)
+  {
+    org.smalluml.smalluml.Class oldClass = class_;
+    class_ = newClass;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, SmallumlPackage.ROLE__CLASS, oldClass, class_));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
     switch (featureID)
     {
-      case SmallumlPackage.ROLE__NAME:
-        return getName();
       case SmallumlPackage.ROLE__LOWER_BOUND:
         return getLowerBound();
       case SmallumlPackage.ROLE__UPPER_BOUND:
         return getUpperBound();
+      case SmallumlPackage.ROLE__CLASS:
+        if (resolve) return getClass_();
+        return basicGetClass();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -213,14 +223,14 @@ public class RoleImpl extends MinimalEObjectImpl.Container implements Role
   {
     switch (featureID)
     {
-      case SmallumlPackage.ROLE__NAME:
-        setName((String)newValue);
-        return;
       case SmallumlPackage.ROLE__LOWER_BOUND:
         setLowerBound((Integer)newValue);
         return;
       case SmallumlPackage.ROLE__UPPER_BOUND:
         setUpperBound((Integer)newValue);
+        return;
+      case SmallumlPackage.ROLE__CLASS:
+        setClass((org.smalluml.smalluml.Class)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -236,14 +246,14 @@ public class RoleImpl extends MinimalEObjectImpl.Container implements Role
   {
     switch (featureID)
     {
-      case SmallumlPackage.ROLE__NAME:
-        setName(NAME_EDEFAULT);
-        return;
       case SmallumlPackage.ROLE__LOWER_BOUND:
         setLowerBound(LOWER_BOUND_EDEFAULT);
         return;
       case SmallumlPackage.ROLE__UPPER_BOUND:
         setUpperBound(UPPER_BOUND_EDEFAULT);
+        return;
+      case SmallumlPackage.ROLE__CLASS:
+        setClass((org.smalluml.smalluml.Class)null);
         return;
     }
     super.eUnset(featureID);
@@ -259,12 +269,12 @@ public class RoleImpl extends MinimalEObjectImpl.Container implements Role
   {
     switch (featureID)
     {
-      case SmallumlPackage.ROLE__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case SmallumlPackage.ROLE__LOWER_BOUND:
         return lowerBound != LOWER_BOUND_EDEFAULT;
       case SmallumlPackage.ROLE__UPPER_BOUND:
         return upperBound != UPPER_BOUND_EDEFAULT;
+      case SmallumlPackage.ROLE__CLASS:
+        return class_ != null;
     }
     return super.eIsSet(featureID);
   }
@@ -280,9 +290,7 @@ public class RoleImpl extends MinimalEObjectImpl.Container implements Role
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
-    result.append(name);
-    result.append(", lowerBound: ");
+    result.append(" (lowerBound: ");
     result.append(lowerBound);
     result.append(", upperBound: ");
     result.append(upperBound);

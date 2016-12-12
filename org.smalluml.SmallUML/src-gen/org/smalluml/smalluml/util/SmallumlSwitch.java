@@ -11,7 +11,9 @@ import org.eclipse.emf.ecore.util.Switch;
 import org.smalluml.smalluml.Association;
 import org.smalluml.smalluml.Attribute;
 import org.smalluml.smalluml.Date;
+import org.smalluml.smalluml.Enumeration;
 import org.smalluml.smalluml.Inheritance;
+import org.smalluml.smalluml.NamedElement;
 import org.smalluml.smalluml.Operation;
 import org.smalluml.smalluml.Parameter;
 import org.smalluml.smalluml.Role;
@@ -81,6 +83,20 @@ public class SmallumlSwitch<T> extends Switch<T>
   {
     switch (classifierID)
     {
+      case SmallumlPackage.PACKAGE:
+      {
+        org.smalluml.smalluml.Package package_ = (org.smalluml.smalluml.Package)theEObject;
+        T result = casePackage(package_);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case SmallumlPackage.NAMED_ELEMENT:
+      {
+        NamedElement namedElement = (NamedElement)theEObject;
+        T result = caseNamedElement(namedElement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case SmallumlPackage.SUPER_TYPE:
       {
         SuperType superType = (SuperType)theEObject;
@@ -92,6 +108,7 @@ public class SmallumlSwitch<T> extends Switch<T>
       {
         Attribute attribute = (Attribute)theEObject;
         T result = caseAttribute(attribute);
+        if (result == null) result = caseNamedElement(attribute);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -99,6 +116,7 @@ public class SmallumlSwitch<T> extends Switch<T>
       {
         Role role = (Role)theEObject;
         T result = caseRole(role);
+        if (result == null) result = caseNamedElement(role);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -106,6 +124,7 @@ public class SmallumlSwitch<T> extends Switch<T>
       {
         Association association = (Association)theEObject;
         T result = caseAssociation(association);
+        if (result == null) result = caseNamedElement(association);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -113,6 +132,7 @@ public class SmallumlSwitch<T> extends Switch<T>
       {
         Operation operation = (Operation)theEObject;
         T result = caseOperation(operation);
+        if (result == null) result = caseNamedElement(operation);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -120,6 +140,7 @@ public class SmallumlSwitch<T> extends Switch<T>
       {
         Parameter parameter = (Parameter)theEObject;
         T result = caseParameter(parameter);
+        if (result == null) result = caseNamedElement(parameter);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -127,6 +148,7 @@ public class SmallumlSwitch<T> extends Switch<T>
       {
         org.smalluml.smalluml.Class class_ = (org.smalluml.smalluml.Class)theEObject;
         T result = caseClass(class_);
+        if (result == null) result = caseNamedElement(class_);
         if (result == null) result = caseSuperType(class_);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -135,6 +157,7 @@ public class SmallumlSwitch<T> extends Switch<T>
       {
         org.smalluml.smalluml.Integer integer = (org.smalluml.smalluml.Integer)theEObject;
         T result = caseInteger(integer);
+        if (result == null) result = caseNamedElement(integer);
         if (result == null) result = caseSuperType(integer);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -143,6 +166,7 @@ public class SmallumlSwitch<T> extends Switch<T>
       {
         org.smalluml.smalluml.String string = (org.smalluml.smalluml.String)theEObject;
         T result = caseString(string);
+        if (result == null) result = caseNamedElement(string);
         if (result == null) result = caseSuperType(string);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -151,7 +175,16 @@ public class SmallumlSwitch<T> extends Switch<T>
       {
         Date date = (Date)theEObject;
         T result = caseDate(date);
+        if (result == null) result = caseNamedElement(date);
         if (result == null) result = caseSuperType(date);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case SmallumlPackage.ENUMERATION:
+      {
+        Enumeration enumeration = (Enumeration)theEObject;
+        T result = caseEnumeration(enumeration);
+        if (result == null) result = caseNamedElement(enumeration);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -164,6 +197,38 @@ public class SmallumlSwitch<T> extends Switch<T>
       }
       default: return defaultCase(theEObject);
     }
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Package</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Package</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePackage(org.smalluml.smalluml.Package object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Named Element</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Named Element</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseNamedElement(NamedElement object)
+  {
+    return null;
   }
 
   /**
@@ -322,6 +387,22 @@ public class SmallumlSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseDate(Date object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Enumeration</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Enumeration</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseEnumeration(Enumeration object)
   {
     return null;
   }

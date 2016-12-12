@@ -39,7 +39,7 @@ import org.smalluml.smalluml.SmallumlPackage;
  *
  * @generated
  */
-public class ClassImpl extends SuperTypeImpl implements org.smalluml.smalluml.Class
+public class ClassImpl extends NamedElementImpl implements org.smalluml.smalluml.Class
 {
   /**
    * The default value of the '{@link #isIsAbstract() <em>Is Abstract</em>}' attribute.

@@ -35,9 +35,13 @@ public class SmallUMLParser extends AbstractContentAssistParser {
 			nameMappings = new HashMap<AbstractElement, String>() {
 				private static final long serialVersionUID = 1L;
 				{
+					put(grammarAccess.getNamedElementAccess().getAlternatives(), "rule__NamedElement__Alternatives");
 					put(grammarAccess.getSuperTypeAccess().getAlternatives(), "rule__SuperType__Alternatives");
 					put(grammarAccess.getEStringAccess().getAlternatives(), "rule__EString__Alternatives");
 					put(grammarAccess.getEBooleanAccess().getAlternatives(), "rule__EBoolean__Alternatives");
+					put(grammarAccess.getPackageAccess().getGroup(), "rule__Package__Group__0");
+					put(grammarAccess.getPackageAccess().getGroup_3(), "rule__Package__Group_3__0");
+					put(grammarAccess.getPackageAccess().getGroup_3_3(), "rule__Package__Group_3_3__0");
 					put(grammarAccess.getAttributeAccess().getGroup(), "rule__Attribute__Group__0");
 					put(grammarAccess.getRoleAccess().getGroup(), "rule__Role__Group__0");
 					put(grammarAccess.getAssociationAccess().getGroup(), "rule__Association__Group__0");
@@ -56,15 +60,20 @@ public class SmallUMLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getIntegerAccess().getGroup(), "rule__Integer__Group__0");
 					put(grammarAccess.getString0Access().getGroup(), "rule__String0__Group__0");
 					put(grammarAccess.getDateAccess().getGroup(), "rule__Date__Group__0");
+					put(grammarAccess.getEnumerationAccess().getGroup(), "rule__Enumeration__Group__0");
+					put(grammarAccess.getEnumerationAccess().getGroup_6(), "rule__Enumeration__Group_6__0");
 					put(grammarAccess.getEIntAccess().getGroup(), "rule__EInt__Group__0");
 					put(grammarAccess.getInheritanceAccess().getGroup(), "rule__Inheritance__Group__0");
 					put(grammarAccess.getInheritanceAccess().getGroup_3(), "rule__Inheritance__Group_3__0");
 					put(grammarAccess.getInheritanceAccess().getGroup_3_3(), "rule__Inheritance__Group_3_3__0");
+					put(grammarAccess.getPackageAccess().getElementsAssignment_3_2(), "rule__Package__ElementsAssignment_3_2");
+					put(grammarAccess.getPackageAccess().getElementsAssignment_3_3_1(), "rule__Package__ElementsAssignment_3_3_1");
 					put(grammarAccess.getAttributeAccess().getNameAssignment_1(), "rule__Attribute__NameAssignment_1");
 					put(grammarAccess.getAttributeAccess().getTypeAssignment_4(), "rule__Attribute__TypeAssignment_4");
 					put(grammarAccess.getRoleAccess().getNameAssignment_1(), "rule__Role__NameAssignment_1");
 					put(grammarAccess.getRoleAccess().getLowerBoundAssignment_4(), "rule__Role__LowerBoundAssignment_4");
 					put(grammarAccess.getRoleAccess().getUpperBoundAssignment_6(), "rule__Role__UpperBoundAssignment_6");
+					put(grammarAccess.getRoleAccess().getClassAssignment_8(), "rule__Role__ClassAssignment_8");
 					put(grammarAccess.getAssociationAccess().getNameAssignment_1(), "rule__Association__NameAssignment_1");
 					put(grammarAccess.getAssociationAccess().getRoleAssignment_5(), "rule__Association__RoleAssignment_5");
 					put(grammarAccess.getAssociationAccess().getRoleAssignment_6_1(), "rule__Association__RoleAssignment_6_1");
@@ -85,6 +94,9 @@ public class SmallUMLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getIntegerAccess().getNameAssignment_2(), "rule__Integer__NameAssignment_2");
 					put(grammarAccess.getString0Access().getNameAssignment_2(), "rule__String0__NameAssignment_2");
 					put(grammarAccess.getDateAccess().getNameAssignment_2(), "rule__Date__NameAssignment_2");
+					put(grammarAccess.getEnumerationAccess().getNameAssignment_1(), "rule__Enumeration__NameAssignment_1");
+					put(grammarAccess.getEnumerationAccess().getSupertypeAssignment_5(), "rule__Enumeration__SupertypeAssignment_5");
+					put(grammarAccess.getEnumerationAccess().getSupertypeAssignment_6_1(), "rule__Enumeration__SupertypeAssignment_6_1");
 					put(grammarAccess.getInheritanceAccess().getChildrenAssignment_3_2(), "rule__Inheritance__ChildrenAssignment_3_2");
 					put(grammarAccess.getInheritanceAccess().getChildrenAssignment_3_3_1(), "rule__Inheritance__ChildrenAssignment_3_3_1");
 				}
@@ -97,7 +109,7 @@ public class SmallUMLParser extends AbstractContentAssistParser {
 	protected Collection<FollowElement> getFollowElements(AbstractInternalContentAssistParser parser) {
 		try {
 			InternalSmallUMLParser typedParser = (InternalSmallUMLParser) parser;
-			typedParser.entryRuleSuperType();
+			typedParser.entryRulePackage();
 			return typedParser.getFollowElements();
 		} catch(RecognitionException ex) {
 			throw new RuntimeException(ex);

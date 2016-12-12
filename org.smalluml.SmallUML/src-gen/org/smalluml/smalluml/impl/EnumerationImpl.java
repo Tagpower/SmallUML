@@ -15,41 +15,41 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.smalluml.smalluml.Association;
-import org.smalluml.smalluml.Role;
+import org.smalluml.smalluml.Enumeration;
 import org.smalluml.smalluml.SmallumlPackage;
+import org.smalluml.smalluml.SuperType;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Association</b></em>'.
+ * An implementation of the model object '<em><b>Enumeration</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.smalluml.smalluml.impl.AssociationImpl#getRole <em>Role</em>}</li>
+ *   <li>{@link org.smalluml.smalluml.impl.EnumerationImpl#getSupertype <em>Supertype</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class AssociationImpl extends NamedElementImpl implements Association
+public class EnumerationImpl extends NamedElementImpl implements Enumeration
 {
   /**
-   * The cached value of the '{@link #getRole() <em>Role</em>}' containment reference list.
+   * The cached value of the '{@link #getSupertype() <em>Supertype</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getRole()
+   * @see #getSupertype()
    * @generated
    * @ordered
    */
-  protected EList<Role> role;
+  protected EList<SuperType> supertype;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected AssociationImpl()
+  protected EnumerationImpl()
   {
     super();
   }
@@ -62,7 +62,7 @@ public class AssociationImpl extends NamedElementImpl implements Association
   @Override
   protected EClass eStaticClass()
   {
-    return SmallumlPackage.Literals.ASSOCIATION;
+    return SmallumlPackage.Literals.ENUMERATION;
   }
 
   /**
@@ -70,13 +70,13 @@ public class AssociationImpl extends NamedElementImpl implements Association
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Role> getRole()
+  public EList<SuperType> getSupertype()
   {
-    if (role == null)
+    if (supertype == null)
     {
-      role = new EObjectContainmentEList<Role>(Role.class, this, SmallumlPackage.ASSOCIATION__ROLE);
+      supertype = new EObjectContainmentEList<SuperType>(SuperType.class, this, SmallumlPackage.ENUMERATION__SUPERTYPE);
     }
-    return role;
+    return supertype;
   }
 
   /**
@@ -89,8 +89,8 @@ public class AssociationImpl extends NamedElementImpl implements Association
   {
     switch (featureID)
     {
-      case SmallumlPackage.ASSOCIATION__ROLE:
-        return ((InternalEList<?>)getRole()).basicRemove(otherEnd, msgs);
+      case SmallumlPackage.ENUMERATION__SUPERTYPE:
+        return ((InternalEList<?>)getSupertype()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -105,8 +105,8 @@ public class AssociationImpl extends NamedElementImpl implements Association
   {
     switch (featureID)
     {
-      case SmallumlPackage.ASSOCIATION__ROLE:
-        return getRole();
+      case SmallumlPackage.ENUMERATION__SUPERTYPE:
+        return getSupertype();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -122,9 +122,9 @@ public class AssociationImpl extends NamedElementImpl implements Association
   {
     switch (featureID)
     {
-      case SmallumlPackage.ASSOCIATION__ROLE:
-        getRole().clear();
-        getRole().addAll((Collection<? extends Role>)newValue);
+      case SmallumlPackage.ENUMERATION__SUPERTYPE:
+        getSupertype().clear();
+        getSupertype().addAll((Collection<? extends SuperType>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -140,8 +140,8 @@ public class AssociationImpl extends NamedElementImpl implements Association
   {
     switch (featureID)
     {
-      case SmallumlPackage.ASSOCIATION__ROLE:
-        getRole().clear();
+      case SmallumlPackage.ENUMERATION__SUPERTYPE:
+        getSupertype().clear();
         return;
     }
     super.eUnset(featureID);
@@ -157,10 +157,10 @@ public class AssociationImpl extends NamedElementImpl implements Association
   {
     switch (featureID)
     {
-      case SmallumlPackage.ASSOCIATION__ROLE:
-        return role != null && !role.isEmpty();
+      case SmallumlPackage.ENUMERATION__SUPERTYPE:
+        return supertype != null && !supertype.isEmpty();
     }
     return super.eIsSet(featureID);
   }
 
-} //AssociationImpl
+} //EnumerationImpl

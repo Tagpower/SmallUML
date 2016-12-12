@@ -14,6 +14,6 @@ package org.smalluml.smalluml;
  * @model
  * @generated
  */
-public interface String extends SuperType
+public interface String extends NamedElement, SuperType
 {
 } // String

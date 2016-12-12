@@ -3,8 +3,6 @@
  */
 package org.smalluml.smalluml.impl;
 
-import java.lang.String;
-
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -16,7 +14,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -35,14 +32,13 @@ import org.smalluml.smalluml.SuperType;
  * </p>
  * <ul>
  *   <li>{@link org.smalluml.smalluml.impl.OperationImpl#isIsAbstract <em>Is Abstract</em>}</li>
- *   <li>{@link org.smalluml.smalluml.impl.OperationImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.smalluml.smalluml.impl.OperationImpl#getReturnType <em>Return Type</em>}</li>
  *   <li>{@link org.smalluml.smalluml.impl.OperationImpl#getParameters <em>Parameters</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class OperationImpl extends MinimalEObjectImpl.Container implements Operation
+public class OperationImpl extends NamedElementImpl implements Operation
 {
   /**
    * The default value of the '{@link #isIsAbstract() <em>Is Abstract</em>}' attribute.
@@ -63,26 +59,6 @@ public class OperationImpl extends MinimalEObjectImpl.Container implements Opera
    * @ordered
    */
   protected boolean isAbstract = IS_ABSTRACT_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected static final String NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected String name = NAME_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getReturnType() <em>Return Type</em>}' reference.
@@ -146,29 +122,6 @@ public class OperationImpl extends MinimalEObjectImpl.Container implements Opera
     isAbstract = newIsAbstract;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, SmallumlPackage.OPERATION__IS_ABSTRACT, oldIsAbstract, isAbstract));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getName()
-  {
-    return name;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setName(String newName)
-  {
-    String oldName = name;
-    name = newName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, SmallumlPackage.OPERATION__NAME, oldName, name));
   }
 
   /**
@@ -256,8 +209,6 @@ public class OperationImpl extends MinimalEObjectImpl.Container implements Opera
     {
       case SmallumlPackage.OPERATION__IS_ABSTRACT:
         return isIsAbstract();
-      case SmallumlPackage.OPERATION__NAME:
-        return getName();
       case SmallumlPackage.OPERATION__RETURN_TYPE:
         if (resolve) return getReturnType();
         return basicGetReturnType();
@@ -280,9 +231,6 @@ public class OperationImpl extends MinimalEObjectImpl.Container implements Opera
     {
       case SmallumlPackage.OPERATION__IS_ABSTRACT:
         setIsAbstract((Boolean)newValue);
-        return;
-      case SmallumlPackage.OPERATION__NAME:
-        setName((String)newValue);
         return;
       case SmallumlPackage.OPERATION__RETURN_TYPE:
         setReturnType((SuperType)newValue);
@@ -308,9 +256,6 @@ public class OperationImpl extends MinimalEObjectImpl.Container implements Opera
       case SmallumlPackage.OPERATION__IS_ABSTRACT:
         setIsAbstract(IS_ABSTRACT_EDEFAULT);
         return;
-      case SmallumlPackage.OPERATION__NAME:
-        setName(NAME_EDEFAULT);
-        return;
       case SmallumlPackage.OPERATION__RETURN_TYPE:
         setReturnType((SuperType)null);
         return;
@@ -333,8 +278,6 @@ public class OperationImpl extends MinimalEObjectImpl.Container implements Opera
     {
       case SmallumlPackage.OPERATION__IS_ABSTRACT:
         return isAbstract != IS_ABSTRACT_EDEFAULT;
-      case SmallumlPackage.OPERATION__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case SmallumlPackage.OPERATION__RETURN_TYPE:
         return returnType != null;
       case SmallumlPackage.OPERATION__PARAMETERS:
@@ -356,8 +299,6 @@ public class OperationImpl extends MinimalEObjectImpl.Container implements Opera
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (isAbstract: ");
     result.append(isAbstract);
-    result.append(", name: ");
-    result.append(name);
     result.append(')');
     return result.toString();
   }

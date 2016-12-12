@@ -13,7 +13,9 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.smalluml.smalluml.Association;
 import org.smalluml.smalluml.Attribute;
 import org.smalluml.smalluml.Date;
+import org.smalluml.smalluml.Enumeration;
 import org.smalluml.smalluml.Inheritance;
+import org.smalluml.smalluml.NamedElement;
 import org.smalluml.smalluml.Operation;
 import org.smalluml.smalluml.Parameter;
 import org.smalluml.smalluml.Role;
@@ -29,6 +31,20 @@ import org.smalluml.smalluml.SuperType;
  */
 public class SmallumlPackageImpl extends EPackageImpl implements SmallumlPackage
 {
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass packageEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass namedElementEClass = null;
+
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -98,6 +114,13 @@ public class SmallumlPackageImpl extends EPackageImpl implements SmallumlPackage
    * @generated
    */
   private EClass dateEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass enumerationEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -174,9 +197,9 @@ public class SmallumlPackageImpl extends EPackageImpl implements SmallumlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getSuperType()
+  public EClass getPackage()
   {
-    return superTypeEClass;
+    return packageEClass;
   }
 
   /**
@@ -184,9 +207,39 @@ public class SmallumlPackageImpl extends EPackageImpl implements SmallumlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getSuperType_Name()
+  public EReference getPackage_Elements()
   {
-    return (EAttribute)superTypeEClass.getEStructuralFeatures().get(0);
+    return (EReference)packageEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getNamedElement()
+  {
+    return namedElementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getNamedElement_Name()
+  {
+    return (EAttribute)namedElementEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getSuperType()
+  {
+    return superTypeEClass;
   }
 
   /**
@@ -204,19 +257,9 @@ public class SmallumlPackageImpl extends EPackageImpl implements SmallumlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getAttribute_Name()
-  {
-    return (EAttribute)attributeEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EReference getAttribute_Type()
   {
-    return (EReference)attributeEClass.getEStructuralFeatures().get(1);
+    return (EReference)attributeEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -234,7 +277,7 @@ public class SmallumlPackageImpl extends EPackageImpl implements SmallumlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getRole_Name()
+  public EAttribute getRole_LowerBound()
   {
     return (EAttribute)roleEClass.getEStructuralFeatures().get(0);
   }
@@ -244,7 +287,7 @@ public class SmallumlPackageImpl extends EPackageImpl implements SmallumlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getRole_LowerBound()
+  public EAttribute getRole_UpperBound()
   {
     return (EAttribute)roleEClass.getEStructuralFeatures().get(1);
   }
@@ -254,9 +297,9 @@ public class SmallumlPackageImpl extends EPackageImpl implements SmallumlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getRole_UpperBound()
+  public EReference getRole_Class()
   {
-    return (EAttribute)roleEClass.getEStructuralFeatures().get(2);
+    return (EReference)roleEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -274,19 +317,9 @@ public class SmallumlPackageImpl extends EPackageImpl implements SmallumlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getAssociation_Name()
-  {
-    return (EAttribute)associationEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EReference getAssociation_Role()
   {
-    return (EReference)associationEClass.getEStructuralFeatures().get(1);
+    return (EReference)associationEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -314,19 +347,9 @@ public class SmallumlPackageImpl extends EPackageImpl implements SmallumlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getOperation_Name()
-  {
-    return (EAttribute)operationEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EReference getOperation_ReturnType()
   {
-    return (EReference)operationEClass.getEStructuralFeatures().get(2);
+    return (EReference)operationEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -336,7 +359,7 @@ public class SmallumlPackageImpl extends EPackageImpl implements SmallumlPackage
    */
   public EReference getOperation_Parameters()
   {
-    return (EReference)operationEClass.getEStructuralFeatures().get(3);
+    return (EReference)operationEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -354,19 +377,9 @@ public class SmallumlPackageImpl extends EPackageImpl implements SmallumlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getParameter_Name()
-  {
-    return (EAttribute)parameterEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EReference getParameter_Type()
   {
-    return (EReference)parameterEClass.getEStructuralFeatures().get(1);
+    return (EReference)parameterEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -454,6 +467,26 @@ public class SmallumlPackageImpl extends EPackageImpl implements SmallumlPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getEnumeration()
+  {
+    return enumerationEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getEnumeration_Supertype()
+  {
+    return (EReference)enumerationEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getInheritance()
   {
     return inheritanceEClass;
@@ -499,30 +532,31 @@ public class SmallumlPackageImpl extends EPackageImpl implements SmallumlPackage
     isCreated = true;
 
     // Create classes and their features
+    packageEClass = createEClass(PACKAGE);
+    createEReference(packageEClass, PACKAGE__ELEMENTS);
+
+    namedElementEClass = createEClass(NAMED_ELEMENT);
+    createEAttribute(namedElementEClass, NAMED_ELEMENT__NAME);
+
     superTypeEClass = createEClass(SUPER_TYPE);
-    createEAttribute(superTypeEClass, SUPER_TYPE__NAME);
 
     attributeEClass = createEClass(ATTRIBUTE);
-    createEAttribute(attributeEClass, ATTRIBUTE__NAME);
     createEReference(attributeEClass, ATTRIBUTE__TYPE);
 
     roleEClass = createEClass(ROLE);
-    createEAttribute(roleEClass, ROLE__NAME);
     createEAttribute(roleEClass, ROLE__LOWER_BOUND);
     createEAttribute(roleEClass, ROLE__UPPER_BOUND);
+    createEReference(roleEClass, ROLE__CLASS);
 
     associationEClass = createEClass(ASSOCIATION);
-    createEAttribute(associationEClass, ASSOCIATION__NAME);
     createEReference(associationEClass, ASSOCIATION__ROLE);
 
     operationEClass = createEClass(OPERATION);
     createEAttribute(operationEClass, OPERATION__IS_ABSTRACT);
-    createEAttribute(operationEClass, OPERATION__NAME);
     createEReference(operationEClass, OPERATION__RETURN_TYPE);
     createEReference(operationEClass, OPERATION__PARAMETERS);
 
     parameterEClass = createEClass(PARAMETER);
-    createEAttribute(parameterEClass, PARAMETER__NAME);
     createEReference(parameterEClass, PARAMETER__TYPE);
 
     classEClass = createEClass(CLASS);
@@ -536,6 +570,9 @@ public class SmallumlPackageImpl extends EPackageImpl implements SmallumlPackage
     stringEClass = createEClass(STRING);
 
     dateEClass = createEClass(DATE);
+
+    enumerationEClass = createEClass(ENUMERATION);
+    createEReference(enumerationEClass, ENUMERATION__SUPERTYPE);
 
     inheritanceEClass = createEClass(INHERITANCE);
     createEReference(inheritanceEClass, INHERITANCE__CHILDREN);
@@ -570,36 +607,47 @@ public class SmallumlPackageImpl extends EPackageImpl implements SmallumlPackage
     // Set bounds for type parameters
 
     // Add supertypes to classes
+    attributeEClass.getESuperTypes().add(this.getNamedElement());
+    roleEClass.getESuperTypes().add(this.getNamedElement());
+    associationEClass.getESuperTypes().add(this.getNamedElement());
+    operationEClass.getESuperTypes().add(this.getNamedElement());
+    parameterEClass.getESuperTypes().add(this.getNamedElement());
+    classEClass.getESuperTypes().add(this.getNamedElement());
     classEClass.getESuperTypes().add(this.getSuperType());
+    integerEClass.getESuperTypes().add(this.getNamedElement());
     integerEClass.getESuperTypes().add(this.getSuperType());
+    stringEClass.getESuperTypes().add(this.getNamedElement());
     stringEClass.getESuperTypes().add(this.getSuperType());
+    dateEClass.getESuperTypes().add(this.getNamedElement());
     dateEClass.getESuperTypes().add(this.getSuperType());
+    enumerationEClass.getESuperTypes().add(this.getNamedElement());
 
     // Initialize classes and features; add operations and parameters
+    initEClass(packageEClass, org.smalluml.smalluml.Package.class, "Package", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getPackage_Elements(), this.getNamedElement(), null, "elements", null, 0, -1, org.smalluml.smalluml.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(namedElementEClass, NamedElement.class, "NamedElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getNamedElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, NamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(superTypeEClass, SuperType.class, "SuperType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getSuperType_Name(), ecorePackage.getEString(), "name", null, 0, 1, SuperType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(attributeEClass, Attribute.class, "Attribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getAttribute_Name(), ecorePackage.getEString(), "name", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getAttribute_Type(), this.getSuperType(), null, "type", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(roleEClass, Role.class, "Role", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getRole_Name(), ecorePackage.getEString(), "name", null, 0, 1, Role.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getRole_LowerBound(), ecorePackage.getEInt(), "lowerBound", null, 0, 1, Role.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getRole_UpperBound(), ecorePackage.getEInt(), "upperBound", null, 0, 1, Role.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRole_Class(), this.getClass_(), null, "class", null, 0, 1, Role.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(associationEClass, Association.class, "Association", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getAssociation_Name(), ecorePackage.getEString(), "name", null, 0, 1, Association.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getAssociation_Role(), this.getRole(), null, "role", null, 0, -1, Association.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(operationEClass, Operation.class, "Operation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getOperation_IsAbstract(), ecorePackage.getEBoolean(), "isAbstract", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getOperation_Name(), ecorePackage.getEString(), "name", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getOperation_ReturnType(), this.getSuperType(), null, "returnType", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getOperation_Parameters(), this.getParameter(), null, "parameters", null, 0, -1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(parameterEClass, Parameter.class, "Parameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getParameter_Name(), ecorePackage.getEString(), "name", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getParameter_Type(), this.getSuperType(), null, "type", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(classEClass, org.smalluml.smalluml.Class.class, "Class", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -613,6 +661,9 @@ public class SmallumlPackageImpl extends EPackageImpl implements SmallumlPackage
     initEClass(stringEClass, org.smalluml.smalluml.String.class, "String", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(dateEClass, Date.class, "Date", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(enumerationEClass, Enumeration.class, "Enumeration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getEnumeration_Supertype(), this.getSuperType(), null, "supertype", null, 0, -1, Enumeration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(inheritanceEClass, Inheritance.class, "Inheritance", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getInheritance_Children(), this.getClass_(), null, "children", null, 0, -1, Inheritance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
