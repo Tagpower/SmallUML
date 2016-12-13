@@ -10,6 +10,13 @@ import org.eclipse.emf.ecore.impl.EFactoryImpl;
 
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
+import smalluml.Association;
+import smalluml.Attribute;
+import smalluml.Date;
+import smalluml.Enumeration;
+import smalluml.Operation;
+import smalluml.Parameter;
+import smalluml.Role;
 import smalluml.SmallumlFactory;
 import smalluml.SmallumlPackage;
 
@@ -57,7 +64,17 @@ public class SmallumlFactoryImpl extends EFactoryImpl implements SmallumlFactory
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
+			case SmallumlPackage.ATTRIBUTE: return createAttribute();
+			case SmallumlPackage.ROLE: return createRole();
+			case SmallumlPackage.ASSOCIATION: return createAssociation();
+			case SmallumlPackage.OPERATION: return createOperation();
+			case SmallumlPackage.PARAMETER: return createParameter();
 			case SmallumlPackage.CLASS: return createClass();
+			case SmallumlPackage.INTEGER: return createInteger();
+			case SmallumlPackage.STRING: return createString();
+			case SmallumlPackage.DATE: return createDate();
+			case SmallumlPackage.ENUMERATION: return createEnumeration();
+			case SmallumlPackage.PACKAGE: return createPackage();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -68,9 +85,109 @@ public class SmallumlFactoryImpl extends EFactoryImpl implements SmallumlFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Attribute createAttribute() {
+		AttributeImpl attribute = new AttributeImpl();
+		return attribute;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Role createRole() {
+		RoleImpl role = new RoleImpl();
+		return role;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Association createAssociation() {
+		AssociationImpl association = new AssociationImpl();
+		return association;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Operation createOperation() {
+		OperationImpl operation = new OperationImpl();
+		return operation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Parameter createParameter() {
+		ParameterImpl parameter = new ParameterImpl();
+		return parameter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public smalluml.Class createClass() {
 		ClassImpl class_ = new ClassImpl();
 		return class_;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public smalluml.Integer createInteger() {
+		IntegerImpl integer = new IntegerImpl();
+		return integer;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public smalluml.String createString() {
+		StringImpl string = new StringImpl();
+		return string;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Date createDate() {
+		DateImpl date = new DateImpl();
+		return date;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Enumeration createEnumeration() {
+		EnumerationImpl enumeration = new EnumerationImpl();
+		return enumeration;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public smalluml.Package createPackage() {
+		PackageImpl package_ = new PackageImpl();
+		return package_;
 	}
 
 	/**

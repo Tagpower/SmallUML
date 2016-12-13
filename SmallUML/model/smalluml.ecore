@@ -36,19 +36,15 @@
         eType="#//Operation" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="isAbstract" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="super" eType="#//Inheritance"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="super" eType="#//Class"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Type" abstract="true" eSuperTypes="#//SuperType"/>
   <eClassifiers xsi:type="ecore:EClass" name="Integer" eSuperTypes="#//Type"/>
   <eClassifiers xsi:type="ecore:EClass" name="String" eSuperTypes="#//Type"/>
   <eClassifiers xsi:type="ecore:EClass" name="Date" eSuperTypes="#//Type"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Inheritance">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="children" upperBound="-1"
-        eType="#//Class" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Enumeration" eSuperTypes="#//NamedElement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="supertype" lowerBound="1"
-        upperBound="-1" eType="#//SuperType" containment="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Enumeration" eSuperTypes="#//SuperType">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="enumeration" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Package">
     <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
