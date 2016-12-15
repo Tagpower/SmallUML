@@ -9,7 +9,6 @@ import org.eclipse.emf.ecore.util.Switch;
 
 import smalluml.Association;
 import smalluml.Attribute;
-import smalluml.Date;
 import smalluml.Enumeration;
 import smalluml.NamedElement;
 import smalluml.Operation;
@@ -140,33 +139,6 @@ public class SmallumlSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case SmallumlPackage.INTEGER: {
-				smalluml.Integer integer = (smalluml.Integer)theEObject;
-				T result = caseInteger(integer);
-				if (result == null) result = caseType(integer);
-				if (result == null) result = caseSuperType(integer);
-				if (result == null) result = caseNamedElement(integer);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case SmallumlPackage.STRING: {
-				smalluml.String string = (smalluml.String)theEObject;
-				T result = caseString(string);
-				if (result == null) result = caseType(string);
-				if (result == null) result = caseSuperType(string);
-				if (result == null) result = caseNamedElement(string);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case SmallumlPackage.DATE: {
-				Date date = (Date)theEObject;
-				T result = caseDate(date);
-				if (result == null) result = caseType(date);
-				if (result == null) result = caseSuperType(date);
-				if (result == null) result = caseNamedElement(date);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case SmallumlPackage.ENUMERATION: {
 				Enumeration enumeration = (Enumeration)theEObject;
 				T result = caseEnumeration(enumeration);
@@ -178,6 +150,7 @@ public class SmallumlSwitch<T> extends Switch<T> {
 			case SmallumlPackage.PACKAGE: {
 				smalluml.Package package_ = (smalluml.Package)theEObject;
 				T result = casePackage(package_);
+				if (result == null) result = caseNamedElement(package_);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -317,51 +290,6 @@ public class SmallumlSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseType(Type object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Integer</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Integer</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseInteger(smalluml.Integer object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>String</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>String</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseString(smalluml.String object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Date</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Date</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseDate(Date object) {
 		return null;
 	}
 

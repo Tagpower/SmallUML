@@ -10,7 +10,7 @@ package smalluml;
  *
  *
  * @see smalluml.SmallumlPackage#getType()
- * @model abstract="true"
+ * @model
  * @generated
  */
 public interface Type extends SuperType {

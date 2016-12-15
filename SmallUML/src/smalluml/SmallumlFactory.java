@@ -76,31 +76,13 @@ public interface SmallumlFactory extends EFactory {
 	Class createClass();
 
 	/**
-	 * Returns a new object of class '<em>Integer</em>'.
+	 * Returns a new object of class '<em>Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Integer</em>'.
+	 * @return a new object of class '<em>Type</em>'.
 	 * @generated
 	 */
-	Integer createInteger();
-
-	/**
-	 * Returns a new object of class '<em>String</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>String</em>'.
-	 * @generated
-	 */
-	String createString();
-
-	/**
-	 * Returns a new object of class '<em>Date</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Date</em>'.
-	 * @generated
-	 */
-	Date createDate();
+	Type createType();
 
 	/**
 	 * Returns a new object of class '<em>Enumeration</em>'.

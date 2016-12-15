@@ -11,13 +11,12 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import smalluml.NamedElement;
+import smalluml.Association;
 import smalluml.SmallumlPackage;
+import smalluml.SuperType;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,11 +27,12 @@ import smalluml.SmallumlPackage;
  * </p>
  * <ul>
  *   <li>{@link smalluml.impl.PackageImpl#getElements <em>Elements</em>}</li>
+ *   <li>{@link smalluml.impl.PackageImpl#getAssociation <em>Association</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class PackageImpl extends MinimalEObjectImpl.Container implements smalluml.Package {
+public class PackageImpl extends NamedElementImpl implements smalluml.Package {
 	/**
 	 * The cached value of the '{@link #getElements() <em>Elements</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -41,7 +41,17 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements smallum
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<NamedElement> elements;
+	protected EList<SuperType> elements;
+
+	/**
+	 * The cached value of the '{@link #getAssociation() <em>Association</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAssociation()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Association> association;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -67,11 +77,23 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements smallum
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<NamedElement> getElements() {
+	public EList<SuperType> getElements() {
 		if (elements == null) {
-			elements = new EObjectContainmentEList<NamedElement>(NamedElement.class, this, SmallumlPackage.PACKAGE__ELEMENTS);
+			elements = new EObjectContainmentEList<SuperType>(SuperType.class, this, SmallumlPackage.PACKAGE__ELEMENTS);
 		}
 		return elements;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Association> getAssociation() {
+		if (association == null) {
+			association = new EObjectContainmentEList<Association>(Association.class, this, SmallumlPackage.PACKAGE__ASSOCIATION);
+		}
+		return association;
 	}
 
 	/**
@@ -84,6 +106,8 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements smallum
 		switch (featureID) {
 			case SmallumlPackage.PACKAGE__ELEMENTS:
 				return ((InternalEList<?>)getElements()).basicRemove(otherEnd, msgs);
+			case SmallumlPackage.PACKAGE__ASSOCIATION:
+				return ((InternalEList<?>)getAssociation()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -98,6 +122,8 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements smallum
 		switch (featureID) {
 			case SmallumlPackage.PACKAGE__ELEMENTS:
 				return getElements();
+			case SmallumlPackage.PACKAGE__ASSOCIATION:
+				return getAssociation();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -113,7 +139,11 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements smallum
 		switch (featureID) {
 			case SmallumlPackage.PACKAGE__ELEMENTS:
 				getElements().clear();
-				getElements().addAll((Collection<? extends NamedElement>)newValue);
+				getElements().addAll((Collection<? extends SuperType>)newValue);
+				return;
+			case SmallumlPackage.PACKAGE__ASSOCIATION:
+				getAssociation().clear();
+				getAssociation().addAll((Collection<? extends Association>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -130,6 +160,9 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements smallum
 			case SmallumlPackage.PACKAGE__ELEMENTS:
 				getElements().clear();
 				return;
+			case SmallumlPackage.PACKAGE__ASSOCIATION:
+				getAssociation().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -144,6 +177,8 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements smallum
 		switch (featureID) {
 			case SmallumlPackage.PACKAGE__ELEMENTS:
 				return elements != null && !elements.isEmpty();
+			case SmallumlPackage.PACKAGE__ASSOCIATION:
+				return association != null && !association.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

@@ -2,8 +2,6 @@
  */
 package smalluml.impl;
 
-import java.lang.Integer;
-
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;

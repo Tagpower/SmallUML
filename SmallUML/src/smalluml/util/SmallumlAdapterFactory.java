@@ -11,7 +11,6 @@ import org.eclipse.emf.ecore.EObject;
 
 import smalluml.Association;
 import smalluml.Attribute;
-import smalluml.Date;
 import smalluml.Enumeration;
 import smalluml.NamedElement;
 import smalluml.Operation;
@@ -112,18 +111,6 @@ public class SmallumlAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseType(Type object) {
 				return createTypeAdapter();
-			}
-			@Override
-			public Adapter caseInteger(smalluml.Integer object) {
-				return createIntegerAdapter();
-			}
-			@Override
-			public Adapter caseString(smalluml.String object) {
-				return createStringAdapter();
-			}
-			@Override
-			public Adapter caseDate(Date object) {
-				return createDateAdapter();
 			}
 			@Override
 			public Adapter caseEnumeration(Enumeration object) {
@@ -276,48 +263,6 @@ public class SmallumlAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createTypeAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link smalluml.Integer <em>Integer</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see smalluml.Integer
-	 * @generated
-	 */
-	public Adapter createIntegerAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link smalluml.String <em>String</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see smalluml.String
-	 * @generated
-	 */
-	public Adapter createStringAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link smalluml.Date <em>Date</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see smalluml.Date
-	 * @generated
-	 */
-	public Adapter createDateAdapter() {
 		return null;
 	}
 

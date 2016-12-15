@@ -4,13 +4,45 @@
 module Small2UML;
 create OUT : uml from IN : small;
 
-rule package {
+rule Package {
 	from
-		small:small!Class
+		f : small!Package
 	to 
-		uml:uml!Class (
-			
+		t : uml!Package (
+			name <- f.name,
+			packagedElement <- f.elements and f.association
+		)
+}
+
+rule Class {
+	from
+		f : small!Class
+	to 
+		t : uml!Class (
+			name <- f.name,
+			isAbstract <- f.isAbstract,
+			superClass <- f.super,
+			ownedAttribute <- f.attribute,
+			ownedOperation <- f.operation			
+		)
+}
+
+rule Type {
+	from
+		f : small!Type
+	to
+		t : uml!Type (
+			name <- f.name
 		)
 }
 	
+rule Enumeration {
+	from
+		f : small!Enumeration
+	to
+		t : uml!Enumeration (
+			name <- f.name,
+			--elements de l'enum
+		)
+}
 

@@ -14,7 +14,7 @@ import smalluml.Type;
  *
  * @generated
  */
-public abstract class TypeImpl extends SuperTypeImpl implements Type {
+public class TypeImpl extends SuperTypeImpl implements Type {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

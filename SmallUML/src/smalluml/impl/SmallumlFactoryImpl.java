@@ -12,13 +12,13 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
 import smalluml.Association;
 import smalluml.Attribute;
-import smalluml.Date;
 import smalluml.Enumeration;
 import smalluml.Operation;
 import smalluml.Parameter;
 import smalluml.Role;
 import smalluml.SmallumlFactory;
 import smalluml.SmallumlPackage;
+import smalluml.Type;
 
 /**
  * <!-- begin-user-doc -->
@@ -70,9 +70,7 @@ public class SmallumlFactoryImpl extends EFactoryImpl implements SmallumlFactory
 			case SmallumlPackage.OPERATION: return createOperation();
 			case SmallumlPackage.PARAMETER: return createParameter();
 			case SmallumlPackage.CLASS: return createClass();
-			case SmallumlPackage.INTEGER: return createInteger();
-			case SmallumlPackage.STRING: return createString();
-			case SmallumlPackage.DATE: return createDate();
+			case SmallumlPackage.TYPE: return createType();
 			case SmallumlPackage.ENUMERATION: return createEnumeration();
 			case SmallumlPackage.PACKAGE: return createPackage();
 			default:
@@ -145,29 +143,9 @@ public class SmallumlFactoryImpl extends EFactoryImpl implements SmallumlFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public smalluml.Integer createInteger() {
-		IntegerImpl integer = new IntegerImpl();
-		return integer;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public smalluml.String createString() {
-		StringImpl string = new StringImpl();
-		return string;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Date createDate() {
-		DateImpl date = new DateImpl();
-		return date;
+	public Type createType() {
+		TypeImpl type = new TypeImpl();
+		return type;
 	}
 
 	/**

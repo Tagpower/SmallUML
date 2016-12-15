@@ -2,7 +2,6 @@
  */
 package smalluml;
 
-import java.lang.String;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
@@ -470,7 +469,6 @@ public interface SmallumlPackage extends EPackage {
 	 */
 	int CLASS_OPERATION_COUNT = SUPER_TYPE_OPERATION_COUNT + 0;
 
-
 	/**
 	 * The meta object id for the '{@link smalluml.impl.TypeImpl <em>Type</em>}' class.
 	 * <!-- begin-user-doc -->
@@ -509,117 +507,6 @@ public interface SmallumlPackage extends EPackage {
 	int TYPE_OPERATION_COUNT = SUPER_TYPE_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link smalluml.impl.IntegerImpl <em>Integer</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see smalluml.impl.IntegerImpl
-	 * @see smalluml.impl.SmallumlPackageImpl#getInteger()
-	 * @generated
-	 */
-	int INTEGER = 9;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INTEGER__NAME = TYPE__NAME;
-
-	/**
-	 * The number of structural features of the '<em>Integer</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INTEGER_FEATURE_COUNT = TYPE_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Integer</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INTEGER_OPERATION_COUNT = TYPE_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link smalluml.impl.StringImpl <em>String</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see smalluml.impl.StringImpl
-	 * @see smalluml.impl.SmallumlPackageImpl#getString()
-	 * @generated
-	 */
-	int STRING = 10;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STRING__NAME = TYPE__NAME;
-
-	/**
-	 * The number of structural features of the '<em>String</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STRING_FEATURE_COUNT = TYPE_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>String</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STRING_OPERATION_COUNT = TYPE_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link smalluml.impl.DateImpl <em>Date</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see smalluml.impl.DateImpl
-	 * @see smalluml.impl.SmallumlPackageImpl#getDate()
-	 * @generated
-	 */
-	int DATE = 11;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATE__NAME = TYPE__NAME;
-
-	/**
-	 * The number of structural features of the '<em>Date</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATE_FEATURE_COUNT = TYPE_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Date</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATE_OPERATION_COUNT = TYPE_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link smalluml.impl.EnumerationImpl <em>Enumeration</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -627,7 +514,7 @@ public interface SmallumlPackage extends EPackage {
 	 * @see smalluml.impl.SmallumlPackageImpl#getEnumeration()
 	 * @generated
 	 */
-	int ENUMERATION = 12;
+	int ENUMERATION = 9;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -673,7 +560,16 @@ public interface SmallumlPackage extends EPackage {
 	 * @see smalluml.impl.SmallumlPackageImpl#getPackage()
 	 * @generated
 	 */
-	int PACKAGE = 13;
+	int PACKAGE = 10;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE__NAME = NAMED_ELEMENT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
@@ -682,7 +578,16 @@ public interface SmallumlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__ELEMENTS = 0;
+	int PACKAGE__ELEMENTS = NAMED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Association</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE__ASSOCIATION = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Package</em>' class.
@@ -691,7 +596,7 @@ public interface SmallumlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE_FEATURE_COUNT = 1;
+	int PACKAGE_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Package</em>' class.
@@ -700,7 +605,7 @@ public interface SmallumlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE_OPERATION_COUNT = 0;
+	int PACKAGE_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
 
 
 	/**
@@ -948,36 +853,6 @@ public interface SmallumlPackage extends EPackage {
 	EClass getType();
 
 	/**
-	 * Returns the meta object for class '{@link smalluml.Integer <em>Integer</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Integer</em>'.
-	 * @see smalluml.Integer
-	 * @generated
-	 */
-	EClass getInteger();
-
-	/**
-	 * Returns the meta object for class '{@link smalluml.String <em>String</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>String</em>'.
-	 * @see smalluml.String
-	 * @generated
-	 */
-	EClass getString();
-
-	/**
-	 * Returns the meta object for class '{@link smalluml.Date <em>Date</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Date</em>'.
-	 * @see smalluml.Date
-	 * @generated
-	 */
-	EClass getDate();
-
-	/**
 	 * Returns the meta object for class '{@link smalluml.Enumeration <em>Enumeration</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1018,6 +893,17 @@ public interface SmallumlPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getPackage_Elements();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link smalluml.Package#getAssociation <em>Association</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Association</em>'.
+	 * @see smalluml.Package#getAssociation()
+	 * @see #getPackage()
+	 * @generated
+	 */
+	EReference getPackage_Association();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -1245,36 +1131,6 @@ public interface SmallumlPackage extends EPackage {
 		EClass TYPE = eINSTANCE.getType();
 
 		/**
-		 * The meta object literal for the '{@link smalluml.impl.IntegerImpl <em>Integer</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see smalluml.impl.IntegerImpl
-		 * @see smalluml.impl.SmallumlPackageImpl#getInteger()
-		 * @generated
-		 */
-		EClass INTEGER = eINSTANCE.getInteger();
-
-		/**
-		 * The meta object literal for the '{@link smalluml.impl.StringImpl <em>String</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see smalluml.impl.StringImpl
-		 * @see smalluml.impl.SmallumlPackageImpl#getString()
-		 * @generated
-		 */
-		EClass STRING = eINSTANCE.getString();
-
-		/**
-		 * The meta object literal for the '{@link smalluml.impl.DateImpl <em>Date</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see smalluml.impl.DateImpl
-		 * @see smalluml.impl.SmallumlPackageImpl#getDate()
-		 * @generated
-		 */
-		EClass DATE = eINSTANCE.getDate();
-
-		/**
 		 * The meta object literal for the '{@link smalluml.impl.EnumerationImpl <em>Enumeration</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1309,6 +1165,14 @@ public interface SmallumlPackage extends EPackage {
 		 * @generated
 		 */
 		EReference PACKAGE__ELEMENTS = eINSTANCE.getPackage_Elements();
+
+		/**
+		 * The meta object literal for the '<em><b>Association</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PACKAGE__ASSOCIATION = eINSTANCE.getPackage_Association();
 
 	}
 

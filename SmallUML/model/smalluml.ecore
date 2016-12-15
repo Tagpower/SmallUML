@@ -38,16 +38,15 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="super" eType="#//Class"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Type" abstract="true" eSuperTypes="#//SuperType"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Integer" eSuperTypes="#//Type"/>
-  <eClassifiers xsi:type="ecore:EClass" name="String" eSuperTypes="#//Type"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Date" eSuperTypes="#//Type"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Type" eSuperTypes="#//SuperType"/>
   <eClassifiers xsi:type="ecore:EClass" name="Enumeration" eSuperTypes="#//SuperType">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="enumeration" upperBound="-1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Package">
+  <eClassifiers xsi:type="ecore:EClass" name="Package" eSuperTypes="#//NamedElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
-        eType="#//NamedElement" containment="true"/>
+        eType="#//SuperType" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="association" upperBound="-1"
+        eType="#//Association" containment="true"/>
   </eClassifiers>
 </ecore:EPackage>
