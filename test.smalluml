@@ -1,0 +1,60 @@
+package kfc {
+	elements {
+		type Integer;
+		type Float;
+		type String;
+		type Boolean;
+		
+		enumeration Taille {
+			PETIT, MOYEN, GRAND
+		}
+		
+		abstract class MenuElement {
+			attributes {
+				attribute taille:Taille,
+				attribute prix:Float
+			}
+		}
+		
+		class Bucket extends MenuElement {
+			
+			operations {
+				operation remplir {quantite:Integer}
+			}
+		}
+		
+		class Frites extends MenuElement {
+			attributes {
+				attribute sel:Boolean
+			}
+		}
+		
+		class Boisson extends MenuElement {
+			attributes {
+				attribute glace:Boolean
+			}
+		}
+		
+		class Commande {
+			attributes {
+				attribute prix:Float
+			,
+				attribute a_emporter : Boolean
+			}
+			operations {
+				operation calculerPrix returns Float
+			}
+		}
+	}
+	
+	associations {
+		association commande {
+			roles {
+				role articles[1,-1] with MenuElement,
+				role dans_menu[0,-1] with Commande
+			}
+		}
+	}
+	
+	
+}
