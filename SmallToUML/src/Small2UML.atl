@@ -42,8 +42,17 @@ rule Enumeration {
 		f : MM!Enumeration
 	to
 		t : MM1!Enumeration (
-			name <- f.name
-			--elements de l'enum
+			name <- f.name,
+			ownedAttribute <- f.enumeration->collect(e | thisModule.EnumerationElement(e))
+		)
+}
+
+lazy rule EnumerationElement {
+	from
+		f : String
+	to
+		t : MM1!Property (
+			name <- f	
 		)
 }
 
@@ -52,9 +61,60 @@ rule Attribute {
 		f : MM!Attribute
 	to
 		t : MM1!Property (
-			name <- t.name,
-			type <- t.type
+			name <- f.name,
+			type <- f.type
 		)
-	
 }
 
+rule Operation {
+	from	
+		f : MM!Operation
+	to
+		t : MM1!Operation (
+			name <- f.name,
+			type <- f.returnType,
+			ownedParameter <- f.parameters,
+			isAbstract <- f.isAbstract
+		)
+}
+
+rule Parameter {
+	from
+		f : MM!Parameter
+	to
+		t : MM1!Parameter (
+			name <- f.name,
+			type <- f.type			
+		)
+}
+
+rule Association {
+	from
+		f : MM!Association
+	to
+		t : MM1!Association (
+			name <- f.name,
+			memberEnd <- f.role->collect(r | thisModule.Role(r) )
+		)
+}
+
+lazy rule Role {
+	from
+		f : MM!Role
+	to
+		t : MM1!Property (
+			name <- f.name,
+			type <- f.class,
+			lowerValue <- thisModule.Cardinality(f.lowerBound),
+			upperValue <- thisModule.Cardinality(f.upperBound)
+		)
+}
+
+lazy rule Cardinality {
+	from
+		f : Integer
+	to
+		t : MM1!LiteralString (
+			value <- f.toString()
+		)
+}
