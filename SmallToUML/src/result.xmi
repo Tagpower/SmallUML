@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<uml:Package xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" name="kfc">
+  <packagedElement xsi:type="uml:DataType" name="Integer"/>
+  <packagedElement xsi:type="uml:DataType" name="Float"/>
+  <packagedElement xsi:type="uml:DataType" name="String"/>
+  <packagedElement xsi:type="uml:DataType" name="Boolean"/>
+  <packagedElement xsi:type="uml:Enumeration" name="Taille"/>
+  <packagedElement xsi:type="uml:Class" name="MenuElement" isAbstract="true"/>
+  <packagedElement xsi:type="uml:Class" name="Bucket">
+    <generalization general="//MenuElement"/>
+  </packagedElement>
+  <packagedElement xsi:type="uml:Class" name="Frites">
+    <generalization general="//MenuElement"/>
+  </packagedElement>
+  <packagedElement xsi:type="uml:Class" name="Boisson">
+    <generalization general="//MenuElement"/>
+  </packagedElement>
+  <packagedElement xsi:type="uml:Class" name="Commande"/>
+</uml:Package>

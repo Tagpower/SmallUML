@@ -10,7 +10,51 @@ rule Package {
 	to 
 		t : MM1!Package (
 			name <- f.name,
-			packagedElement <- f.elements --f.association
+			packagedElement <- f.elements->union(f.association)
 		)
+}
+
+rule Class {
+	from
+		f : MM!Class
+	to 
+		t : MM1!Class (
+			name <- f.name,
+			isAbstract <- f.isAbstract,
+			superClass <- f.super,
+			ownedAttribute <- f.attribute,
+			ownedOperation <- f.operation			
+		)
+}
+
+rule Type {
+	from
+		f : MM!Type
+	to
+		t : MM1!DataType (
+			name <- f.name
+		)
+}
+	
+
+rule Enumeration {
+	from
+		f : MM!Enumeration
+	to
+		t : MM1!Enumeration (
+			name <- f.name
+			--elements de l'enum
+		)
+}
+
+rule Attribute {
+	from
+		f : MM!Attribute
+	to
+		t : MM1!Property (
+			name <- t.name,
+			type <- t.type
+		)
+	
 }
 

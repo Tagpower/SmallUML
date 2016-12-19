@@ -1,41 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<smalluml:Package xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:smalluml="http://www.univ-nantes.fr/smalluml" xsi:schemaLocation="http://www.univ-nantes.fr/smalluml ../../SmallUML/model/smalluml.ecore" name="kfc">
-	<elements xsi:type="Type" name="Integer"/>
-	<elements xsi:type="Type" name="Float"/>
-	<elements xsi:type="Type" name="String"/>
-	<elements xsi:type="Type" name="Boolean"/>
-	<elements xsi:type="Enumeration" name="Taille">
+<smalluml:Package
+	xmi:version="2.0"
+	xmlns:xmi="http://www.omg.org/XMI"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:smalluml="http://www.univ-nantes.fr/smalluml"
+    xsi:schemaLocation="http://www.univ-nantes.fr/smalluml /SmallUML/model/smalluml.ecore"
+    name="kfc">
+	<elements xsi:type="smalluml:Type" name="Integer"/>
+	<elements xsi:type="smalluml:Type" name="Float"/>
+	<elements xsi:type="smalluml:Type" name="String"/>
+	<elements xsi:type="smalluml:Type" name="Boolean"/>
+	<elements xsi:type="smalluml:Enumeration" name="Taille">
 		<enumeration>PETIT</enumeration>
 		<enumeration>MOYEN</enumeration>
 		<enumeration>GRAND</enumeration>
 	</elements>
 	
-	<elements xsi:type="Class" name="MenuElement" isAbstract="true">
+	<elements xsi:type="smalluml:Class" name="MenuElement" isAbstract="true">
 		<attribute name="taille" type="//@elements.4"/>
 	</elements>
 	
-	<elements xsi:type="Class" name="Bucket" super="//@elements.5">
+	<elements xsi:type="smalluml:Class" name="Bucket" super="//@elements.5">
 		<operation name="remplir">
 			<parameter name="quantite" type="//@elements.0"/>
 		</operation>
 	</elements>
 	
-	<elements xsi:type="Class" name="Frites" super="//@elements.5">
+	<elements xsi:type="smalluml:Class" name="Frites" super="//@elements.5">
 		<attribute name="sel" type="//@elements.3"/>
 	</elements>
 	
-	<elements xsi:type="Class" name="Boisson" super="//@elements.5">
+	<elements xsi:type="smalluml:Class" name="Boisson" super="//@elements.5">
 		<attribute name="glace" type="//@elements.3"/>
 	</elements>
 	
-	<elements xsi:type="Class" name="Commande">
+	<elements xsi:type="smalluml:Class" name="Commande">
 		<attribute name="prix" type="//@elements.1"/>
 		<attribute name="a_emporter" type="//@elements.3"/>
 		<operations name="calculerPrix" returnType="//@elements.1"/>
 	</elements>
 
-	<associations type="Association" name="commande">
+	<associations xsi:type="smalluml:Association" name="commande">
 		<role name="articles" lowerBound="1" upperBound="-1" class="//@elements.5"/>
 		<role name="dans_menu" lowerBound="0" upperBound="-1" class="//@elements.9"/>
 	</associations>
